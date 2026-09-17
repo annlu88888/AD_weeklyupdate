@@ -1,0 +1,470 @@
+<title>美朵三院 RECAP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;background:#f5f3ef;color:#2a2825;line-height:1.7;padding:0}
+.page{max-width:860px;margin:0 auto;padding:40px 28px 32px}
+
+/* Cover */
+.cover{background:linear-gradient(135deg,#2a2825 0%,#3d3a35 40%,#4a453e 100%);color:#fff;padding:52px 44px 44px;border-radius:20px;margin-bottom:28px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(196,166,160,.15) 0%,transparent 70%);border-radius:50%}
+.cover::after{content:'';position:absolute;bottom:-40px;left:30%;width:180px;height:180px;background:radial-gradient(circle,rgba(201,169,110,.08) 0%,transparent 70%);border-radius:50%}
+.cover .brand-label{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.cover h1{font-size:28px;font-weight:700;margin-bottom:4px;letter-spacing:-.5px;position:relative}
+.cover .subtitle{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:28px;font-weight:300}
+.cover .meta-row{display:flex;flex-wrap:wrap;gap:20px;font-size:12px;color:rgba(255,255,255,.4)}
+.cover .meta-row span{display:flex;align-items:center;gap:5px}
+
+/* Strategy note */
+.strategy-note{background:#fff;border:1px solid #e8e7e3;border-radius:16px;padding:18px 22px;margin-bottom:28px;font-size:13px;color:#555;line-height:1.8;border-left:3px solid #c4a680}
+.strategy-note b{color:#2a2825;font-weight:600}
+
+/* Highlights */
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.hl-card{border-radius:16px;padding:22px 20px;position:relative;overflow:hidden}
+.hl-card::after{content:'';position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 0 0 80px;opacity:.08}
+.hl-card.hl-tp{background:linear-gradient(135deg,#f9f5f0 0%,#f0e8df 100%);border:1px solid #e8ddd2}
+.hl-card.hl-tc{background:linear-gradient(135deg,#f0f4f9 0%,#e3ecf5 100%);border:1px solid #d2dde8}
+.hl-card.hl-ks{background:linear-gradient(135deg,#f0f7f2 0%,#e0efe4 100%);border:1px solid #c8dece}
+.hl-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.hl-tp .hl-label{color:#a08060}
+.hl-tc .hl-label{color:#6080a0}
+.hl-ks .hl-label{color:#5a8a68}
+.hl-val{font-size:32px;font-weight:900;letter-spacing:-1px;line-height:1.1}
+.hl-tp .hl-val{color:#6b5440}
+.hl-tc .hl-val{color:#3a5a7a}
+.hl-ks .hl-val{color:#2d6b42}
+.hl-desc{font-size:12px;color:#888;margin-top:6px;line-height:1.5}
+
+/* MVP section */
+.mvp-section{margin-bottom:32px}
+.mvp-title{font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999;margin-bottom:16px;padding-left:4px}
+.mvp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mvp-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #e8e7e3;transition:transform .2s,box-shadow .2s}
+.mvp-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.mvp-info{padding:14px 16px}
+.mvp-clinic{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px}
+.mvp-clinic.cl-tp{color:#a08060}
+.mvp-clinic.cl-tc{color:#6080a0}
+.mvp-clinic.cl-ks{color:#5a8a68}
+.mvp-name{font-size:13px;font-weight:600;color:#2a2825;margin-bottom:8px;line-height:1.4}
+.mvp-stats{display:flex;gap:8px;flex-wrap:wrap}
+.mvp-stat{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500}
+.mvp-stat.st-tp{background:#f9f5f0;color:#8a6a48}
+.mvp-stat.st-tc{background:#f0f4f9;color:#4a6a8a}
+.mvp-stat.st-ks{background:#f0f7f2;color:#3a7a4a}
+
+/* Clinic section */
+.clinic-section{margin-bottom:24px}
+.clinic-card{background:#fff;border-radius:16px;border:1px solid #e8e7e3;overflow:hidden}
+.clinic-banner{padding:20px 24px 16px;position:relative}
+.clinic-banner.bn-tp{background:linear-gradient(90deg,#f9f5f0 0%,#fff 100%);border-bottom:2px solid #e0d0c0}
+.clinic-banner.bn-tc{background:linear-gradient(90deg,#f0f4f9 0%,#fff 100%);border-bottom:2px solid #c0d0e0}
+.clinic-banner.bn-ks{background:linear-gradient(90deg,#f0f7f2 0%,#fff 100%);border-bottom:2px solid #b0d8b8}
+.clinic-banner h2{font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px}
+.clinic-badge{font-size:10px;font-weight:500;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.badge-tp{background:rgba(160,128,96,.12);color:#8a6a48}
+.badge-tc{background:rgba(96,128,160,.12);color:#4a6a8a}
+.badge-ks{background:rgba(90,138,104,.12);color:#3a7a4a}
+.clinic-body{padding:20px 24px 24px}
+
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:18px}
+.kpi{padding:14px 16px;border-radius:12px;background:#fafaf8;border:1px solid #f0efec}
+.kpi .k-label{font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.5px;font-weight:500}
+.kpi .k-val{font-size:24px;font-weight:800;margin-top:2px;letter-spacing:-.5px}
+.kpi .k-sub{font-size:11px;color:#aaa;margin-top:2px}
+.kpi-tp .k-val{color:#6b5440}
+.kpi-tc .k-val{color:#3a5a7a}
+.kpi-ks .k-val{color:#2d6b42}
+
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:14px}
+thead th{text-align:left;font-weight:500;color:#999;padding:10px 10px;border-bottom:2px solid #e8e7e3;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px}
+th.r{text-align:right}
+td{padding:10px;border-bottom:1px solid #f5f4f1;vertical-align:middle}
+td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#fdfcfa}
+tbody tr:hover{background:#f8f6f2}
+.campaign-name{font-weight:500;color:#2a2825;line-height:1.4}
+.status{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:8px;font-size:10px;font-weight:600;letter-spacing:.3px;white-space:nowrap}
+.st-active{background:#e8f5ec;color:#1a7a3a}
+.st-active::before{content:'';width:5px;height:5px;border-radius:50%;background:#2ecc71;display:inline-block}
+.st-learning{background:#e8f0fc;color:#2a5da8}
+.st-learning::before{content:'';width:5px;height:5px;border-radius:50%;background:#5b9bd5;display:inline-block}
+.st-paused{background:#f5f3f0;color:#999}
+.st-paused::before{content:'';width:5px;height:5px;border-radius:50%;background:#ccc;display:inline-block}
+.st-ended{background:#f5f3f0;color:#999}
+.st-ended::before{content:'';width:5px;height:5px;border-radius:50%;background:#ccc;display:inline-block}
+
+/* Insight box */
+.insight-box{border-radius:12px;padding:16px 20px;font-size:13px;color:#555;line-height:1.9}
+.insight-box b{color:#2a2825;font-weight:600}
+.ins-tp{background:linear-gradient(90deg,#f9f5f0 0%,#fdfcfa 100%);border-left:3px solid #c4a680}
+.ins-tc{background:linear-gradient(90deg,#f0f4f9 0%,#fdfcfa 100%);border-left:3px solid #8aacc8}
+.ins-ks{background:linear-gradient(90deg,#f0f7f2 0%,#fdfcfa 100%);border-left:3px solid #7ab88a}
+
+/* IG Section */
+.ig-section{margin-bottom:28px}
+.ig-section-title{font-size:18px;font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e8e7e3;display:flex;align-items:center;gap:8px}
+
+.chart-card{background:#fff;border:1px solid #e8e7e3;border-radius:16px;padding:22px 24px;margin-bottom:16px}
+.chart-title{font-size:14px;font-weight:600;margin-bottom:4px;color:#2a2825}
+.chart-subtitle{font-size:12px;color:#999;margin-bottom:16px}
+.chart-legend{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#888}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+.bar-chart{display:flex;flex-direction:column;gap:12px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-label{width:50px;font-size:13px;font-weight:600;text-align:right;flex-shrink:0;color:#2a2825}
+.bar-track{flex:1;height:28px;background:#f5f3f0;border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:0 6px 6px 0}
+.bar-value{font-size:12px;font-weight:600;color:#888;margin-left:8px;white-space:nowrap;min-width:60px;font-variant-numeric:tabular-nums}
+
+/* Observation callout */
+.obs-callout{background:linear-gradient(90deg,#f9f5f0 0%,#fdfcfa 100%);border-left:3px solid #c4a680;border-radius:12px;padding:18px 22px;margin-bottom:16px}
+.obs-title{font-size:13px;font-weight:700;color:#8a6a48;margin-bottom:6px}
+.obs-body{font-size:13px;color:#555;line-height:1.9}
+.obs-body b{color:#2a2825;font-weight:600}
+
+/* Improvement cards */
+.improve-card{background:#fff;border:1px solid #e8e7e3;border-radius:16px;padding:18px 22px;margin-bottom:12px}
+.improve-num{font-size:11px;font-weight:700;color:#6080a0;margin-bottom:4px;letter-spacing:.5px}
+.improve-title{font-size:15px;font-weight:600;margin-bottom:8px;color:#2a2825}
+.improve-body{font-size:13px;color:#555;line-height:1.8}
+
+/* Conclusion */
+.conclusion{background:linear-gradient(135deg,#2a2825 0%,#3d3a35 40%,#4a453e 100%);color:#fff;border-radius:20px;padding:36px 32px;margin-top:28px;position:relative;overflow:hidden}
+.conclusion::before{content:'';position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:radial-gradient(circle,rgba(196,166,160,.1) 0%,transparent 70%);border-radius:50%}
+.conclusion h2{font-size:17px;font-weight:700;margin-bottom:16px;position:relative}
+.conclusion p{font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.9;margin-bottom:10px;position:relative}
+.conclusion p:last-child{margin-bottom:0}
+.highlight{color:#e8c88a;font-weight:600}
+
+.footer{text-align:center;font-size:10px;color:#ccc;padding:24px 0 8px;letter-spacing:.5px}
+
+@media(max-width:640px){
+.page{padding:20px 16px}
+.cover{padding:32px 24px}
+.cover h1{font-size:22px}
+.highlights{grid-template-columns:1fr}
+.mvp-grid{grid-template-columns:1fr}
+.kpi-row{grid-template-columns:1fr}
+.clinic-body{padding:16px}
+table{font-size:11.5px}
+td,th{padding:8px 6px}
+.bar-label{width:40px;font-size:12px}
+}
+</style>
+
+<div class="page">
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="brand-label">Meidow Medical Aesthetics</div>
+    <h1>美朵三院 Meta 廣告成效週報</h1>
+    <div class="subtitle">9 月投放成效總覽與素材表現分析</div>
+    <div class="meta-row">
+      <span>報告區間：2026/09/01 – 09/17</span>
+      <span>報告日期：2026/09/18（四）</span>
+      <span>投遞平台：Meta（FB + IG）</span>
+    </div>
+  </div>
+
+  <!-- Strategy note -->
+  <div class="strategy-note">
+    <b>本期策略調整：</b>關閉名單型廣告，集中預算於<b>私訊諮詢</b>，提升實際到診轉換率。內容策略採<b>醫師口播 + 素人分享雙線</b>並行製作中，預計 1–2 週內陸續上線觀察成效。
+  </div>
+
+  <!-- 三院亮點 -->
+  <div class="highlights">
+    <div class="hl-card hl-tp">
+      <div class="hl-label">台北亮點</div>
+      <div class="hl-val">54 筆</div>
+      <div class="hl-desc">素人美胸計劃表單<br>CPR $138 ・ 三院名單成本最低</div>
+    </div>
+    <div class="hl-card hl-tc">
+      <div class="hl-label">台中亮點</div>
+      <div class="hl-val">5,702 次</div>
+      <div class="hl-desc">「隆乳可以撐10年嗎」IG 瀏覽<br>CPR $0.87 ・ 同支影音私訊 41 則</div>
+    </div>
+    <div class="hl-card hl-ks">
+      <div class="hl-label">高雄亮點</div>
+      <div class="hl-val">130 則</div>
+      <div class="hl-desc">「30秒認識拉皮」私訊<br>CPR $70 ・ 三院轉換效率最高</div>
+    </div>
+  </div>
+
+  <!-- 素材 MVP -->
+  <div class="mvp-section">
+    <div class="mvp-title">素材 MVP</div>
+    <div class="mvp-grid">
+      <div class="mvp-card">
+        <div class="mvp-info">
+          <div class="mvp-clinic cl-tp">台北</div>
+          <div class="mvp-name">隆乳諮詢該怎麼問</div>
+          <div class="mvp-stats">
+            <span class="mvp-stat st-tp">IG 瀏覽 3,592 次</span>
+            <span class="mvp-stat st-tp">CPR $1.38</span>
+          </div>
+        </div>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-info">
+          <div class="mvp-clinic cl-tc">台中</div>
+          <div class="mvp-name">隆乳可以撐 10 年嗎</div>
+          <div class="mvp-stats">
+            <span class="mvp-stat st-tc">IG 瀏覽 5,702 次</span>
+            <span class="mvp-stat st-tc">CPR $0.87</span>
+          </div>
+        </div>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-info">
+          <div class="mvp-clinic cl-ks">高雄</div>
+          <div class="mvp-name">30秒認識拉皮</div>
+          <div class="mvp-stats">
+            <span class="mvp-stat st-ks">私訊 130 則</span>
+            <span class="mvp-stat st-ks">CPR $70</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 台北 ===== -->
+  <div class="clinic-section">
+    <div class="clinic-card">
+      <div class="clinic-banner bn-tp">
+        <h2>台北美朵 <span class="clinic-badge badge-tp">影音持續測試・名單穩定產出</span></h2>
+      </div>
+      <div class="clinic-body">
+        <div class="kpi-row">
+          <div class="kpi kpi-tp">
+            <div class="k-label">私訊諮詢</div>
+            <div class="k-val">51 則</div>
+            <div class="k-sub">4 組影音</div>
+          </div>
+          <div class="kpi kpi-tp">
+            <div class="k-label">表單名單</div>
+            <div class="k-val">54 筆</div>
+            <div class="k-sub">CPR $138</div>
+          </div>
+          <div class="kpi kpi-tp">
+            <div class="k-label">IG 瀏覽</div>
+            <div class="k-val">5,191 次</div>
+            <div class="k-sub">最佳 $1.38/次</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>目標</th><th>素材</th><th>投遞狀態</th><th class="r">成果</th><th class="r">CPR</th></tr></thead>
+          <tbody>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜女王波素人分享｜受眾 B</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">18 則</td><td class="r">$450</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">抽脂影音｜抽脂 QA</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">19 則</td><td class="r">$412</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜隆乳素人分享｜受眾 B</td><td><span class="status st-ended">已結束</span></td><td class="r">12 則</td><td class="r">$445</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜隆乳素人多素材｜受眾 B</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">1 則</td><td class="r">$1,199</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜隆乳諮詢必問｜受眾 B</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">1 則</td><td class="r">$740</td></tr>
+            <tr><td>名單</td><td class="campaign-name">隆乳單圖｜素人美胸計劃</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">53 表單</td><td class="r">$138</td></tr>
+            <tr><td>名單</td><td class="campaign-name">隆乳單圖｜素人美胸計劃（舊）</td><td><span class="status st-paused">停用</span></td><td class="r">1 表單</td><td class="r">$734</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">隆乳影音｜隆乳諮詢該怎麼問</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">3,592 次</td><td class="r">$1.38</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">抽脂單圖｜流量(轉 IG)｜通稿 1</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">1,599 次</td><td class="r">$3.09</td></tr>
+          </tbody>
+        </table>
+        <div class="insight-box ins-tp">
+          「女王波素人分享」和「抽脂 QA」兩組影音合計帶入 37 則私訊，是目前台北私訊的主要來源，但 CPR 均在 $400 以上，為三院最高。名單型「素人美胸計劃」累計 54 筆表單、CPR $138，持續穩定。IG 瀏覽方面，<b>「隆乳諮詢該怎麼問」影音 CPR $1.38</b> 是全帳戶流量效率最高的素材之一，搭配抽脂通稿合計帶入超過 5,000 次瀏覽。台北目前最需要補充新的私訊素材來降低 CPR。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 台中 ===== -->
+  <div class="clinic-section">
+    <div class="clinic-card">
+      <div class="clinic-banner bn-tc">
+        <h2>台中美朵 <span class="clinic-badge badge-tc">主力影音撐轉換・流量效率最佳</span></h2>
+      </div>
+      <div class="clinic-body">
+        <div class="kpi-row">
+          <div class="kpi kpi-tc">
+            <div class="k-label">私訊諮詢</div>
+            <div class="k-val">58 則</div>
+            <div class="k-sub">影音 41 + 平面 17</div>
+          </div>
+          <div class="kpi kpi-tc">
+            <div class="k-label">IG 瀏覽</div>
+            <div class="k-val">8,493 次</div>
+            <div class="k-sub">最佳 $0.87/次</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>目標</th><th>素材</th><th>投遞狀態</th><th class="r">成果</th><th class="r">CPR</th></tr></thead>
+          <tbody>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜隆乳可以撐 10 年嗎？</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">41 則</td><td class="r">$206</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳單圖｜通用素材 D｜受眾 B</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">16 則</td><td class="r">$534</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳｜單日 500｜通用素材 B</td><td><span class="status st-paused">已關閉</span></td><td class="r">1 則</td><td class="r">$1,232</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">隆乳影音｜隆乳可以撐 10 年嗎？</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">5,702 次</td><td class="r">$0.87</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">隆乳單圖｜流量(導 IG)｜通稿 D</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">2,256 次</td><td class="r">$3.66</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">抽脂影音｜30秒認識超能電漿</td><td><span class="status st-ended">已結束</span></td><td class="r">535 次</td><td class="r">$4.84</td></tr>
+          </tbody>
+        </table>
+        <div class="insight-box ins-tc">
+          「隆乳可以撐 10 年嗎」持續是台中的主力素材，私訊組拿到 41 則（CPR $206），IG 瀏覽組拿到 5,702 次（CPR $0.87），<b>一支影音同時帶動轉換和流量</b>。通稿 D 單圖持續跑流量（2,256 次 IG 瀏覽），抽脂影音「30秒認識超能電漿」累積 535 次瀏覽後已結束。通用素材 B 長期觀察後成效有限，已關閉。台中私訊有 71% 集中在單一素材，需要更多有效素材分散來源。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 高雄 ===== -->
+  <div class="clinic-section">
+    <div class="clinic-card">
+      <div class="clinic-banner bn-ks">
+        <h2>高雄美朵 <span class="clinic-badge badge-ks">拉皮穩定・隆乳擴大測試</span></h2>
+      </div>
+      <div class="clinic-body">
+        <div class="kpi-row">
+          <div class="kpi kpi-ks">
+            <div class="k-label">私訊諮詢</div>
+            <div class="k-val">187 則</div>
+            <div class="k-sub">拉皮 149 + 隆乳 38</div>
+          </div>
+          <div class="kpi kpi-ks">
+            <div class="k-label">表單名單</div>
+            <div class="k-val">22 筆</div>
+            <div class="k-sub">已關閉改私訊測試</div>
+          </div>
+          <div class="kpi kpi-ks">
+            <div class="k-label">IG 瀏覽</div>
+            <div class="k-val">3,110 次</div>
+            <div class="k-sub">最佳 $3.24/次</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>目標</th><th>素材</th><th>投遞狀態</th><th class="r">成果</th><th class="r">CPR</th></tr></thead>
+          <tbody>
+            <tr><td>私訊</td><td class="campaign-name">拉皮影音｜30秒認識拉皮</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">130 則</td><td class="r">$70</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜謝醫師｜素人影音分享</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">22 則</td><td class="r">$216</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">拉皮影音｜拉皮素人分享</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">11 則</td><td class="r">$108</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳｜平面｜又菁醫師預約診</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">10 則</td><td class="r">$558</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">拉皮影音｜30歲也能拉皮</td><td><span class="status st-paused">已關閉</span></td><td class="r">8 則</td><td class="r">$297</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜隆乳不是越大越好</td><td><span class="status st-paused">已關閉</span></td><td class="r">5 則</td><td class="r">$605</td></tr>
+            <tr><td>私訊</td><td class="campaign-name">隆乳影音｜又菁醫師花絮 0915</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">1 則</td><td class="r">$1,048</td></tr>
+            <tr><td>名單</td><td class="campaign-name">隆乳｜名單｜素人隆乳體驗</td><td><span class="status st-paused">已關閉</span></td><td class="r">22 表單</td><td class="r">$170</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">隆乳影音｜隆乳材質怎麼選</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">2,162 次</td><td class="r">$3.24</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">隆乳影音｜IG 帳號瀏覽</td><td><span class="status st-active">穩定投遞中</span></td><td class="r">682 次</td><td class="r">$4.85</td></tr>
+            <tr><td>IG 瀏覽</td><td class="campaign-name">拉皮影音｜IG 瀏覽</td><td><span class="status st-paused">已關閉</span></td><td class="r">266 次</td><td class="r">$6.17</td></tr>
+          </tbody>
+        </table>
+        <div class="insight-box ins-ks">
+          拉皮影音「30秒認識拉皮」持續穩定產出，<b>130 則私訊、CPR $70</b>，是三院轉換效率最好的素材。隆乳方面陸續開了又菁醫師平面（10 則）和謝醫師素人影音分享（22 則），正在測試中。名單型「素人隆乳體驗」累計 22 筆表單（CPR $170），已關閉改為私訊測試。IG 瀏覽三組合計 3,110 次，「隆乳材質怎麼選」影音（2,162 次、CPR $3.24）是流量主力。高雄隆乳線正在擴大素材測試，私訊量有 70% 集中在拉皮影音，需要更多隆乳素材分攤。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== IG 社群觀察 ===== -->
+  <div class="ig-section">
+    <div class="ig-section-title">IG 社群成長觀察與改善建議</div>
+
+    <!-- IG Views Chart -->
+    <div class="chart-card">
+      <div class="chart-title">IG 商業檔案瀏覽量</div>
+      <div class="chart-subtitle">廣告導入 IG 帳號的流量，反映帳號養成效果</div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#a08060"></div>台北</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6080a0"></div>台中</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#5a8a68"></div>高雄</div>
+      </div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">台中</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#6080a0,#8aacc8)"></div></div>
+          <div class="bar-value">8,493 次</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">台北</div>
+          <div class="bar-track"><div class="bar-fill" style="width:61.1%;background:linear-gradient(90deg,#a08060,#c4a680)"></div></div>
+          <div class="bar-value">5,191 次</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">高雄</div>
+          <div class="bar-track"><div class="bar-fill" style="width:36.6%;background:linear-gradient(90deg,#5a8a68,#7ab88a)"></div></div>
+          <div class="bar-value">3,110 次</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IG Follows Chart -->
+    <div class="chart-card">
+      <div class="chart-title">IG 追蹤成長</div>
+      <div class="chart-subtitle">廣告帶來的新追蹤者數量</div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#a08060"></div>台北</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6080a0"></div>台中</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#5a8a68"></div>高雄</div>
+      </div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">高雄</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#5a8a68,#7ab88a)"></div></div>
+          <div class="bar-value">+118 人</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">台北</div>
+          <div class="bar-track"><div class="bar-fill" style="width:47.5%;background:linear-gradient(90deg,#a08060,#c4a680)"></div></div>
+          <div class="bar-value">+56 人</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">台中</div>
+          <div class="bar-track"><div class="bar-fill" style="width:20.3%;background:linear-gradient(90deg,#6080a0,#8aacc8)"></div></div>
+          <div class="bar-value">+24 人</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Observation callout -->
+    <div class="obs-callout">
+      <div class="obs-title">落差觀察</div>
+      <div class="obs-body">
+        台中 IG 瀏覽量最高（8,493 次），但追蹤成長最低（僅 24 人），轉換率僅 <b>0.28%</b>。相比之下，高雄瀏覽量最低（3,110 次），追蹤卻最高（118 人），轉換率達 <b>3.8%</b>。這代表台中的流量有進來，但 IG 頁面沒有成功留住訪客。
+      </div>
+    </div>
+
+    <!-- 改善建議 -->
+    <div class="improve-card">
+      <div class="improve-num">改善建議 1</div>
+      <div class="improve-title">精選動態（Highlights）整理</div>
+      <div class="improve-body">依療程分類（隆乳 / 拉皮 / 抽脂），放入術前術後、常見 QA、素人分享，讓廣告導進來的人第一眼就能找到自己關心的內容。目前台中帳號的精選動態需要優先檢視。</div>
+    </div>
+    <div class="improve-card">
+      <div class="improve-num">改善建議 2</div>
+      <div class="improve-title">置頂貼文更新</div>
+      <div class="improve-body">把近期表現最好的影音內容（如「30秒認識拉皮」類型）釘在最上面，強化第一印象。讓新訪客進到 IG 頁面時，第一眼看到的就是有吸引力的內容。</div>
+    </div>
+    <div class="improve-card">
+      <div class="improve-num">改善建議 3</div>
+      <div class="improve-title">Bio 行動呼籲優化</div>
+      <div class="improve-body">確認每院的 IG Bio 都有清楚的諮詢入口（私訊按鈕、預約連結），減少從「有興趣」到「開口問」的阻力。Bio 是訪客決定要不要追蹤或私訊的關鍵接觸點。</div>
+    </div>
+    <div class="improve-card">
+      <div class="improve-num">改善建議 4</div>
+      <div class="improve-title">自然內容與廣告內容呼應</div>
+      <div class="improve-body">廣告在推隆乳影音，IG 頁面上也要有近期相關的自然貼文，不然觀眾點進來看到的內容對不上，信任感會斷掉。確保廣告訊息與自然發文的一致性。</div>
+    </div>
+    <div class="improve-card">
+      <div class="improve-num">改善建議 5</div>
+      <div class="improve-title">限動保持活躍</div>
+      <div class="improve-body">定期發限時動態（日常、診間花絮、案例回饋），讓帳號看起來「有人在經營」，提升追蹤意願。一個沒有限動的帳號在潛在患者眼中就像一間沒在營業的店。</div>
+    </div>
+  </div>
+
+  <!-- ===== 整體觀察 ===== -->
+  <div class="conclusion">
+    <h2>整體觀察</h2>
+    <p>9 月投放進入第三週，三院皆已有影音素材上線，私訊轉換量持續提升。高雄拉皮線持續是最穩定的轉換來源（<span class="highlight">130 則、CPR $70</span>）；台中靠「隆乳可以撐 10 年嗎」一支影音同時撐起私訊與流量；台北影音上線後雙軌皆有產出，但私訊 CPR 偏高，為優先需要補充新素材的院區。</p>
+    <p>本期起關閉名單型廣告，集中預算於私訊諮詢。醫師口播 + 素人影音雙線製作中，上線後將觀察 1–2 週成效。下一期報告會納入新舊素材成效對比，評估新素材是否有效分散私訊來源並降低整體 CPR。</p>
+  </div>
+
+  <div class="footer">美朵醫美 ・ Meta 廣告成效 RECAP ・ 2026/09/01–09/17</div>
+</div>
