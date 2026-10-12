@@ -1,0 +1,690 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>美朵週報 10/12</title>
+<style>
+  /* Layout: full-width stacked sections, card grid for clinics */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --bg-card: #1a1c25;
+    --bg-card-alt: #22242e;
+    --fg: #e8e9ed;
+    --fg-dim: #9a9daa;
+    --fg-muted: #6b6e7a;
+    --accent-gold: #e8a84c;
+    --accent-blue: #5b8def;
+    --accent-green: #4ec9a0;
+    --accent-purple: #a78bfa;
+    --accent-red: #ef6b6b;
+    --border: rgba(255,255,255,0.06);
+    --taipei: #e8a84c;
+    --taichung: #5b8def;
+    --kaohsiung: #4ec9a0;
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f5f5f7;
+      --bg-card: #ffffff;
+      --bg-card-alt: #f0f0f3;
+      --fg: #1a1c25;
+      --fg-dim: #5a5d6a;
+      --fg-muted: #8a8d9a;
+      --border: rgba(0,0,0,0.08);
+      --taipei: #c4862a;
+      --taichung: #3a6fd8;
+      --kaohsiung: #2ea87e;
+      --accent-gold: #c4862a;
+      --accent-blue: #3a6fd8;
+      --accent-green: #2ea87e;
+      --accent-purple: #7c5cbf;
+      --accent-red: #d04e4e;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f5f7;
+    --bg-card: #ffffff;
+    --bg-card-alt: #f0f0f3;
+    --fg: #1a1c25;
+    --fg-dim: #5a5d6a;
+    --fg-muted: #8a8d9a;
+    --border: rgba(0,0,0,0.08);
+    --taipei: #c4862a;
+    --taichung: #3a6fd8;
+    --kaohsiung: #2ea87e;
+    --accent-gold: #c4862a;
+    --accent-blue: #3a6fd8;
+    --accent-green: #2ea87e;
+    --accent-purple: #7c5cbf;
+    --accent-red: #d04e4e;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    line-height: 1.7;
+    padding-inline: 16px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .report-header {
+    text-align: center;
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .report-header .brand {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 12px;
+  }
+  .report-header h1 {
+    font-size: clamp(22px, 5vw, 30px);
+    font-weight: 900;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+  .report-header .subtitle {
+    font-size: 14px;
+    color: var(--fg-dim);
+    margin: 0;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--fg-muted);
+  }
+  .meta-row span { white-space: nowrap; }
+
+  /* Section titles */
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 48px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .icon { font-size: 20px; }
+
+  /* Cost cards row */
+  .cost-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 540px) {
+    .cost-cards { grid-template-columns: 1fr; }
+  }
+  .cost-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cost-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .cost-card.taipei::before { background: var(--taipei); }
+  .cost-card.taichung::before { background: var(--taichung); }
+  .cost-card.kaohsiung::before { background: var(--kaohsiung); }
+  .cost-card .clinic-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg-dim);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .cost-card .cost-value {
+    font-size: 32px;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .cost-card.taipei .cost-value { color: var(--taipei); }
+  .cost-card.taichung .cost-value { color: var(--taichung); }
+  .cost-card.kaohsiung .cost-value { color: var(--kaohsiung); }
+  .cost-card .cost-compare {
+    font-size: 12px;
+    color: var(--fg-muted);
+    margin-top: 6px;
+  }
+  .cost-card .cost-change {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-green);
+    margin-top: 4px;
+  }
+
+  /* New ad sets cards — one per clinic */
+  .new-ads-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 640px) {
+    .new-ads-grid { grid-template-columns: 1fr; }
+  }
+  .new-ads-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .new-ads-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .new-ads-card.tp::before { background: var(--taipei); }
+  .new-ads-card.tc::before { background: var(--taichung); }
+  .new-ads-card.ks::before { background: var(--kaohsiung); }
+  .new-ads-card .new-card-clinic {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .new-ads-card.tp .new-card-clinic { color: var(--taipei); }
+  .new-ads-card.tc .new-card-clinic { color: var(--taichung); }
+  .new-ads-card.ks .new-card-clinic { color: var(--kaohsiung); }
+  .new-ads-card ul {
+    margin: 0; padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .new-ads-card li {
+    font-size: 13px;
+    color: var(--fg-dim);
+    padding: 8px 10px;
+    background: var(--bg-card-alt);
+    border-radius: 8px;
+    line-height: 1.5;
+  }
+  .new-ads-card li .obj-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+    background: rgba(167,139,250,0.15);
+    color: var(--accent-purple);
+  }
+  .new-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: var(--accent-purple);
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Clinic sections */
+  .clinic-section {
+    margin-bottom: 48px;
+  }
+  .clinic-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .clinic-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .clinic-dot.tp { background: var(--taipei); }
+  .clinic-dot.tc { background: var(--taichung); }
+  .clinic-dot.ks { background: var(--kaohsiung); }
+  .clinic-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* KPI tiles */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .kpi-tile {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .kpi-tile .kpi-label {
+    font-size: 11px;
+    color: var(--fg-muted);
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+  }
+  .kpi-tile .kpi-value {
+    font-size: 22px;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .kpi-tile .kpi-sub {
+    font-size: 11px;
+    color: var(--fg-muted);
+    margin-top: 2px;
+  }
+
+  /* Data tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 500px;
+  }
+  thead th {
+    background: var(--bg-card-alt);
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--fg-dim);
+    text-align: left;
+    padding: 10px 12px;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--bg-card-alt); }
+
+  /* Status badges */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .badge-green { background: rgba(78,201,160,0.15); color: var(--accent-green); }
+  .badge-amber { background: rgba(232,168,76,0.15); color: var(--accent-gold); }
+  .badge-purple { background: rgba(167,139,250,0.15); color: var(--accent-purple); }
+
+  .trend-down {
+    color: var(--accent-green);
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  /* Clinic narrative */
+  .clinic-narrative {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--fg-dim);
+    line-height: 1.8;
+  }
+
+  /* Observations */
+  .obs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .obs-list li {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--fg-dim);
+  }
+  .obs-list li strong {
+    color: var(--fg);
+  }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding: 32px 0 48px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+</style>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="brand">美朵醫美 Myrule Aesthetic Clinic</div>
+  <h1>美朵三院 Meta 廣告成效總覽</h1>
+  <p class="subtitle">十月上半月投放數據與策略追蹤</p>
+  <div class="meta-row">
+    <span>📅 報告區間：10/01 – 10/12（12 天）</span>
+    <span>📄 報告日期：2026/10/12</span>
+    <span>📡 平台：Meta FB + IG</span>
+    <span>📊 對比基準：9 月</span>
+  </div>
+</div>
+
+<!-- 單次私訊成本 -->
+<div class="section-title"><span class="icon">💰</span>單次私訊成本</div>
+<div class="cost-cards">
+  <div class="cost-card taipei">
+    <div class="clinic-name">台北美朵</div>
+    <div class="cost-value">$267</div>
+    <div class="cost-compare">九月 $330</div>
+    <div class="cost-change">↓ 19%</div>
+  </div>
+  <div class="cost-card taichung">
+    <div class="clinic-name">台中美朵</div>
+    <div class="cost-value">$269</div>
+    <div class="cost-compare">九月 $363</div>
+    <div class="cost-change">↓ 26%</div>
+  </div>
+  <div class="cost-card kaohsiung">
+    <div class="clinic-name">高雄美朵</div>
+    <div class="cost-value">$108</div>
+    <div class="cost-compare">九月 $167</div>
+    <div class="cost-change">↓ 35%</div>
+  </div>
+</div>
+
+<!-- 新增組合 -->
+<div class="section-title"><span class="icon">🆕</span>今日新增廣告組合<span style="font-size:13px;font-weight:400;color:var(--fg-muted);margin-left:auto;">10/12 上線，下週追蹤成效</span></div>
+<div class="new-ads-grid">
+  <div class="new-ads-card tp">
+    <div class="new-card-clinic">台北美朵</div>
+    <ul>
+      <li><span class="obj-tag">私訊</span>素人隆乳圖片更換</li>
+      <li><span class="obj-tag">IG 瀏覽</span>素人隆乳分人影音</li>
+      <li><span class="obj-tag">私訊</span>森巴女王術後一個月影音</li>
+    </ul>
+  </div>
+  <div class="new-ads-card tc">
+    <div class="new-card-clinic">台中美朵</div>
+    <ul>
+      <li><span class="obj-tag">IG 瀏覽</span>游醫師-抽脂＝減肥嗎</li>
+      <li><span class="obj-tag">IG 瀏覽</span>陳醫師-隆乳材質怎麼選</li>
+    </ul>
+  </div>
+  <div class="new-ads-card ks">
+    <div class="new-card-clinic">高雄美朵</div>
+    <ul>
+      <li><span class="obj-tag">私訊</span>游醫師隆乳素人推薦</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 台北 -->
+<div class="clinic-section">
+  <div class="clinic-header">
+    <div class="clinic-dot tp"></div>
+    <h2>台北美朵</h2>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi-tile">
+      <div class="kpi-label">私訊諮詢</div>
+      <div class="kpi-value" style="color:var(--taipei)">82</div>
+      <div class="kpi-sub">日均 6.8 則</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">IG 瀏覽</div>
+      <div class="kpi-value">2,021</div>
+      <div class="kpi-sub">次</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">IG 追蹤</div>
+      <div class="kpi-value">34</div>
+      <div class="kpi-sub">次</div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>廣告組合</th>
+          <th>目標</th>
+          <th>成果</th>
+          <th>單次成本</th>
+          <th>狀態</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>陳醫師素人隆乳</td>
+          <td>私訊</td>
+          <td>72 則</td>
+          <td>$275</td>
+          <td><span class="badge badge-amber">已調整組合</span></td>
+        </tr>
+        <tr>
+          <td>隆乳推薦</td>
+          <td>私訊</td>
+          <td>10 則</td>
+          <td>$211</td>
+          <td><span class="badge badge-green">素材已更新</span></td>
+        </tr>
+        <tr>
+          <td>美朵隆乳</td>
+          <td>IG 瀏覽</td>
+          <td>2,021 次</td>
+          <td>$3.5</td>
+          <td><span class="badge badge-green">穩定投遞中</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="clinic-narrative">
+    陳醫師素人隆乳為台北主力，12 天累積 72 則私訊，單次成本 $275（九月 $330↓），已調整組合持續優化。隆乳推薦組合更換素材後帶入 10 則私訊，成本 $211 表現優異。IG 瀏覽組合穩定曝光，單次瀏覽成本 $3.5，累積 34 次追蹤。
+  </div>
+</div>
+
+<!-- 台中 -->
+<div class="clinic-section">
+  <div class="clinic-header">
+    <div class="clinic-dot tc"></div>
+    <h2>台中美朵</h2>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi-tile">
+      <div class="kpi-label">私訊諮詢</div>
+      <div class="kpi-value" style="color:var(--taichung)">48</div>
+      <div class="kpi-sub">日均 4.0 則</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">IG 瀏覽</div>
+      <div class="kpi-value">2,244</div>
+      <div class="kpi-sub">次</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">ThruPlay</div>
+      <div class="kpi-value">7,727</div>
+      <div class="kpi-sub">次</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">IG 追蹤</div>
+      <div class="kpi-value">26</div>
+      <div class="kpi-sub">次</div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>廣告組合</th>
+          <th>目標</th>
+          <th>成果</th>
+          <th>單次成本</th>
+          <th>狀態</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>游醫師-隆乳自然</td>
+          <td>私訊</td>
+          <td>31 則</td>
+          <td>$283</td>
+          <td><span class="badge badge-green">穩定投遞中</span></td>
+        </tr>
+        <tr>
+          <td>陳醫師-果凍矽膠隆乳</td>
+          <td>私訊</td>
+          <td>17 則</td>
+          <td>$241</td>
+          <td><span class="badge badge-green">穩定投遞中</span></td>
+        </tr>
+        <tr>
+          <td>游醫師-抽脂日記</td>
+          <td>IG 瀏覽</td>
+          <td>2,244 次</td>
+          <td>$2.5</td>
+          <td><span class="badge badge-green">穩定投遞中</span></td>
+        </tr>
+        <tr>
+          <td>隆乳 ThruPlay</td>
+          <td>ThruPlay</td>
+          <td>7,727 次</td>
+          <td>$0.7</td>
+          <td><span class="badge badge-green">穩定投遞中</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="clinic-narrative">
+    台中雙主力私訊組合合計 48 則，日均 4.0 則。陳醫師果凍矽膠隆乳成本 $241 為台中最低，游醫師隆乳自然 $283 亦穩定。IG 瀏覽與 ThruPlay 組合持續累積曝光，追蹤數 26 次。
+  </div>
+</div>
+
+<!-- 高雄 -->
+<div class="clinic-section">
+  <div class="clinic-header">
+    <div class="clinic-dot ks"></div>
+    <h2>高雄美朵</h2>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi-tile">
+      <div class="kpi-label">私訊諮詢</div>
+      <div class="kpi-value" style="color:var(--kaohsiung)">167</div>
+      <div class="kpi-sub">日均 13.9 則</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">IG 瀏覽</div>
+      <div class="kpi-value">1,289</div>
+      <div class="kpi-sub">次</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="kpi-label">IG 追蹤</div>
+      <div class="kpi-value">32</div>
+      <div class="kpi-sub">次</div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>廣告組合</th>
+          <th>目標</th>
+          <th>成果</th>
+          <th>單次成本</th>
+          <th>狀態</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>素人佳佳｜拉皮</td>
+          <td>私訊</td>
+          <td>128 則</td>
+          <td>$99</td>
+          <td><span class="badge badge-green">主力素材</span></td>
+        </tr>
+        <tr>
+          <td>隆乳推薦</td>
+          <td>私訊</td>
+          <td>39 則</td>
+          <td>$138</td>
+          <td><span class="badge badge-green">素材已更新</span></td>
+        </tr>
+        <tr>
+          <td>高雄拉皮</td>
+          <td>IG 瀏覽</td>
+          <td>1,289 次</td>
+          <td>$4.0</td>
+          <td><span class="badge badge-green">穩定投遞中</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="clinic-narrative">
+    高雄為三館成本最低館，素人佳佳以 $99／則領跑全帳戶，12 天帶入 128 則私訊，較前期素材（$224）大幅下降。隆乳推薦更換素材後 39 則私訊、成本 $138，整體表現亮眼。IG 瀏覽累積 1,289 次、32 次追蹤。
+  </div>
+</div>
+
+<!-- 整體觀察 -->
+<div class="section-title"><span class="icon">📌</span>整體觀察</div>
+<ul class="obs-list">
+  <li><strong>成本全面下降</strong>：三館單次私訊成本較九月均有雙位數降幅，高雄 ↓35% 最為突出。</li>
+  <li><strong>高雄素人佳佳表現亮眼</strong>：單次成本 $99，為目前全帳戶最低，建議持續觀察並維持投遞。</li>
+  <li><strong>新組合密集上線</strong>：今日同步新增 6 組廣告（台北 3／台中 2／高雄 1），下週將追蹤初期數據表現。</li>
+  <li><strong>IG 瀏覽穩定曝光</strong>：三館合計 5,554 次瀏覽、92 次追蹤，品牌觸及持續擴大。</li>
+</ul>
+
+<!-- Footer -->
+<div class="report-footer">
+  美朵醫美 Meta 廣告成效總覽 ｜ 10/01 – 10/12
+</div>
+
+</body></html>
