@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>美朵三院 Meta 廣告成效週報 — 2026/10/15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E2230;
+  --ink-2:#4A5063;
+  --ink-3:#7C8295;
+  --line:#E3E5EC;
+  --paper:#FFFFFF;
+  --bg:#F5F6F9;
+  --brand:#5A3E63;
+  --brand-soft:#F1ECF3;
+  --tp:#C98A17; --tp-soft:#FBF3E2;
+  --tc:#2F6FB5; --tc-soft:#E8F0FA;
+  --kh:#2E8B5E; --kh-soft:#E5F4EC;
+  --new:#7B4FC4; --new-soft:#EFE8FA;
+  --go:#2E8B5E; --go-soft:#E5F4EC;
+  --watch:#B7791F; --watch-soft:#FBF1DF;
+  --swap:#3F6C8F; --swap-soft:#E6EEF4;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;
+  font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 64px}
+b,strong{font-weight:700}
+
+/* Header */
+header.top{background:var(--brand);color:#fff;padding:48px 0 40px}
+header.top .wrap{padding-bottom:0}
+.brandline{font-size:14px;letter-spacing:.06em;opacity:.75;margin:0 0 10px}
+h1{font-size:clamp(28px,4.4vw,40px);font-weight:900;line-height:1.3;margin:0 0 8px;letter-spacing:.01em}
+.sub{font-size:17px;opacity:.88;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;opacity:.85}
+
+/* Summary */
+.summary{background:var(--paper);border-radius:14px;margin-top:-20px;padding:26px 28px;border:1px solid var(--line);position:relative}
+.summary p{margin:0;max-width:62em}
+.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--brand);background:var(--brand-soft);border-radius:6px;padding:2px 10px;margin-bottom:10px}
+
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.kpi{border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:18px;border:1px solid transparent}
+.kpi.tp{background:var(--tp-soft);border-color:#F0DDB5}
+.kpi.tc{background:var(--tc-soft);border-color:#C9DBF0}
+.kpi.kh{background:var(--kh-soft);border-color:#BFE3CF}
+.kpi .site{font-weight:900;font-size:15px;width:56px;flex:none}
+.kpi.tp .site{color:var(--tp)} .kpi.tc .site{color:var(--tc)} .kpi.kh .site{color:var(--kh)}
+.kpi .num{font-size:30px;font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .num small{font-size:15px;font-weight:700;margin-left:2px}
+.kpi .desc{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+
+/* New materials */
+.new-materials{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px}
+.new-materials h2{font-size:18px;margin:0 0 14px;font-weight:900}
+.nm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.nm-col h3{font-size:15px;font-weight:700;margin:0 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+.nm-col.tp h3{color:var(--tp);border-color:var(--tp)}
+.nm-col.tc h3{color:var(--tc);border-color:var(--tc)}
+.nm-col.kh h3{color:var(--kh);border-color:var(--kh)}
+.nm-col ul{list-style:none;padding:0;margin:0}
+.nm-col li{font-size:14px;padding:4px 0;line-height:1.6}
+.nm-col li::before{content:"•";margin-right:6px;font-weight:700}
+.nm-col.tp li::before{color:var(--tp)}
+.nm-col.tc li::before{color:var(--tc)}
+.nm-col.kh li::before{color:var(--kh)}
+
+/* Sections */
+section{margin-top:44px}
+.sec-head{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--line)}
+.sec-head h2{font-size:24px;font-weight:900;margin:0;line-height:1.35}
+.sec-head .hl{font-size:16px;font-weight:700;color:var(--ink-2)}
+.site-tp .sec-head{border-color:var(--tp)} .site-tp .sec-head h2{color:var(--tp)}
+.site-tc .sec-head{border-color:var(--tc)} .site-tc .sec-head h2{color:var(--tc)}
+.site-kh .sec-head{border-color:var(--kh)} .site-kh .sec-head h2{color:var(--kh)}
+
+.statline{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 16px;min-width:140px}
+.stat .l{font-size:13px;color:var(--ink-3)}
+.stat .n{font-size:22px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.3}
+.stat .n small{font-size:13px;font-weight:500;color:var(--ink-2);margin-left:4px}
+
+.analysis{margin:16px 0 0;color:var(--ink-2);max-width:62em}
+
+/* Tables */
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:13px;font-weight:700;color:var(--ink-3);background:#FAFBFC;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td.goal{white-space:nowrap;color:var(--ink-2);font-size:13.5px}
+td.trend{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+td.trend.down{color:var(--go);font-weight:700}
+.status{font-size:13px;white-space:nowrap;color:var(--ink-2)}
+.status.learn{color:var(--new)}
+.badge{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;white-space:nowrap}
+.b-new{background:var(--new-soft);color:var(--new);font-size:11px;padding:1px 7px;margin-left:6px;vertical-align:2px;border-radius:5px}
+.b-go{background:var(--go-soft);color:var(--go)}
+.b-watch{background:var(--watch-soft);color:var(--watch)}
+.b-swap{background:var(--swap-soft);color:var(--swap)}
+.b-off{background:#EEEFF2;color:#7C8295}
+.status.adj{color:var(--swap)}
+.status.off{color:var(--ink-3)}
+tr.off td{color:var(--ink-3)}
+
+/* Overall */
+.overall{background:var(--brand);color:#fff;border-radius:16px;padding:30px 30px 26px}
+.overall h2{font-size:22px;margin:0 0 10px}
+.overall p{margin:0;opacity:.92;max-width:62em}
+.recs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+.rec{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:16px 18px}
+.rec .t{font-weight:900;font-size:16px;margin-bottom:6px}
+.rec .t span{opacity:.6;margin-right:6px}
+.rec p{font-size:14.5px;line-height:1.7;opacity:.92}
+
+footer{margin-top:40px;text-align:center;font-size:13px;color:var(--ink-3)}
+
+@media (max-width:860px){
+  .kpis{grid-template-columns:1fr}
+  .nm-grid{grid-template-columns:1fr}
+  .recs{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .summary{padding:20px}
+  .kpi .num{font-size:26px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<p class="brandline">Meidow Medical Aesthetics</p>
+<h1>美朵三院 Meta 廣告成效週報</h1>
+<p class="sub">10 月成效結算與素材表現分析</p>
+<div class="meta"><span>報告區間：2026/10/01 – 10/15</span><span>報告日期：2026/10/15（三）</span><span>投遞平台：Meta（FB + IG）</span><span>比較基準：9 月小結（09/01 – 09/27）</span></div>
+</div></header>
+
+<main class="wrap">
+
+<!-- 本期重點 -->
+<div class="summary"><span class="tag">本期重點</span>
+<p>10/1–10/15 三院私訊合計 <strong>395 則</strong>，日均 26.3 則。三院私訊平均單次成本都比 9 月下降：台北 $324 → $256（-21%），台中 $362 → $258（-29%），高雄 $165 → $105（-36%）。高雄「拉皮影音 30 秒認識拉皮」表現優異，累計 128 則、單次成本 $69。三院持續新增素材測試，本期共新增 8 支素材。</p>
+</div>
+
+<!-- KPI cards -->
+<div class="kpis">
+<div class="kpi tp"><div class="site">台北</div><div><div class="num">102<small>則</small></div><div class="desc">私訊｜平均單次成本 $256（vs 9 月 -21%）</div></div></div>
+<div class="kpi tc"><div class="site">台中</div><div><div class="num">64<small>則</small></div><div class="desc">私訊｜平均單次成本 $258（vs 9 月 -29%）</div></div></div>
+<div class="kpi kh"><div class="site">高雄</div><div><div class="num">229<small>則</small></div><div class="desc">私訊｜平均單次成本 $105（vs 9 月 -36%）</div></div></div>
+</div>
+
+<!-- 本期新增素材 -->
+<div class="new-materials">
+<h2>本期新增廣告測試素材</h2>
+<div class="nm-grid">
+<div class="nm-col tp">
+<h3>台北</h3>
+<ul>
+<li>陳醫師 女王波 Boost 差異</li>
+<li>翁醫師 天鵝頸+拉皮 改善雙下巴</li>
+<li>盈波素人隆乳</li>
+</ul>
+</div>
+<div class="nm-col tc">
+<h3>台中</h3>
+<ul>
+<li>術後 3 年，女王波素人反饋</li>
+<li>陳醫師 產後哺乳下垂如何改善</li>
+</ul>
+</div>
+<div class="nm-col kh">
+<h3>高雄</h3>
+<ul>
+<li>游醫師 女王波素人分享</li>
+<li>游醫師 女王波半年分享</li>
+<li>又菁醫師 隆乳會不會影響哺乳</li>
+<li>游醫師 隆乳+抽脂 能不能一起做</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- ── 台北 ── -->
+<section class="site-tp"><div class="sec-head"><h2>台北美朵</h2><span class="hl">私訊單次成本比 9 月下降 21%</span></div>
+<div class="statline">
+<div class="stat"><div class="l">私訊諮詢</div><div class="n">102<small>則</small></div></div>
+<div class="stat"><div class="l">IG 瀏覽</div><div class="n">2,820<small>次</small></div></div>
+<div class="stat"><div class="l">IG 追蹤</div><div class="n">52<small>人</small></div></div>
+<div class="stat"><div class="l">影片觀看（ThruPlay）</div><div class="n">419<small>次</small></div></div>
+</div>
+<div class="tbl"><table><thead><tr><th>目標</th><th>素材</th><th>投遞狀態</th><th>成果</th><th>單次成本</th><th>趨勢（vs 9 月）</th><th>建議</th></tr></thead><tbody>
+<tr><td class="goal">私訊</td><td>抽脂 QA</td><td class="status">穩定投遞中</td><td class="num">30 則</td><td class="num">$255</td><td class="trend down">$333 → $255</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>素人隆乳體驗</td><td class="status">穩定投遞中</td><td class="num">26 則</td><td class="num">$280</td><td class="trend">$272 → $280</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>陳醫師素人隆乳</td><td class="status">穩定投遞中</td><td class="num">25 則</td><td class="num">$204</td><td class="trend">$164 → $204</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>女王波素人<span class="badge b-new">NEW</span></td><td class="status">穩定投遞中</td><td class="num">13 則</td><td class="num">$263</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>皇家波素人</td><td class="status off">素材測試完成</td><td class="num">5 則</td><td class="num">$397</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr><td class="goal">私訊</td><td>姐妹隆乳</td><td class="status off">素材測試完成</td><td class="num">3 則</td><td class="num">$219</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr><td class="goal">私訊</td><td>素人隆乳體驗-奶茶<span class="badge b-new">NEW</span></td><td class="status learn">剛上線</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>素人隆乳體驗-銀紫<span class="badge b-new">NEW</span></td><td class="status learn">剛上線</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>盈波隆乳<span class="badge b-new">NEW</span></td><td class="status learn">剛上線</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>抽脂單圖通稿 1</td><td class="status">穩定投遞中</td><td class="num">1,658 次</td><td class="num">$2.57</td><td class="trend down">$3.12 → $2.57</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>隆乳諮詢該怎麼問</td><td class="status off">未投遞</td><td class="num">713 次</td><td class="num">$4.81</td><td class="trend">$1.89 → $4.81</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>隆乳素人分享</td><td class="status">穩定投遞中</td><td class="num">449 次</td><td class="num">$2.23</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">影片觀看</td><td>翁醫師隆鼻 ThruPlay<span class="badge b-new">NEW</span></td><td class="status">穩定投遞中</td><td class="num">230 次</td><td class="num">$0.31</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">影片觀看</td><td>陳醫師女王波 ThruPlay<span class="badge b-new">NEW</span></td><td class="status">穩定投遞中</td><td class="num">170 次</td><td class="num">$0.41</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">影片觀看</td><td>翁醫師天鵝頸+拉皮<span class="badge b-new">NEW</span></td><td class="status learn">剛上線</td><td class="num">19 次</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr class="off"><td class="goal">私訊</td><td>眼袋素人</td><td class="status off">素材測試完成・已淘汰</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr class="off"><td class="goal">私訊</td><td>森巴女王術後一個月</td><td class="status off">素材測試完成・已淘汰</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+</tbody></table></div>
+<div class="analysis"><p style="margin:0 0 8px">台北目前累計總私訊 102 則，日均 6.8 則；私訊平均單次成本 $256，比 9 月的 $324 下降 21%。</p><ol style="margin:0;padding-left:1.4em"><li>「抽脂 QA」累計 30 則，單次成本 $255，比 9 月下降 23%，穩定產出中。</li><li>「陳醫師素人隆乳」累計 25 則、單次成本 $204，為台北單次成本最低的私訊素材。</li><li>「素人隆乳體驗」26 則，持續穩定投遞。新素材「女王波素人」上線後累計 13 則、單次成本 $263，表現正向。</li><li>IG 瀏覽方面，「抽脂單圖通稿 1」累計 1,658 次、$2.57／次，持續為品牌曝光主力。</li><li>影音觀看 ThruPlay 養量中：「翁醫師隆鼻」230 次、$0.31／次，「陳醫師女王波」170 次、$0.41／次，持續累積受眾。</li><li>已淘汰素材：眼袋素人、森巴女王術後一個月素材測試完成。</li></ol></div>
+</section>
+
+<!-- ── 台中 ── -->
+<section class="site-tc"><div class="sec-head"><h2>台中美朵</h2><span class="hl">私訊單次成本比 9 月下降 29%・隆乳素人招募下降 42%</span></div>
+<div class="statline">
+<div class="stat"><div class="l">私訊諮詢</div><div class="n">64<small>則</small></div></div>
+<div class="stat"><div class="l">IG 瀏覽</div><div class="n">2,880<small>次</small></div></div>
+<div class="stat"><div class="l">影片觀看（ThruPlay）</div><div class="n">8,070<small>次</small></div></div>
+<div class="stat"><div class="l">IG 追蹤</div><div class="n">37<small>人</small></div></div>
+</div>
+<div class="tbl"><table><thead><tr><th>目標</th><th>素材</th><th>投遞狀態</th><th>成果</th><th>單次成本</th><th>趨勢（vs 9 月）</th><th>建議</th></tr></thead><tbody>
+<tr><td class="goal">私訊</td><td>隆乳素人招募</td><td class="status">穩定投遞中</td><td class="num">36 則</td><td class="num">$226</td><td class="trend down">$390 → $226</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>陳醫師-隆乳材質怎麼挑（美容美髮）</td><td class="status">穩定投遞中</td><td class="num">10 則</td><td class="num">$308</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>隆乳術後影片</td><td class="status">穩定投遞中</td><td class="num">6 則</td><td class="num">$52</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>陳醫師-隆乳材質怎麼挑（女性內在美）</td><td class="status off">未投遞</td><td class="num">5 則</td><td class="num">$384</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>游醫師-隆乳可以撐10年嗎</td><td class="status off">素材測試完成</td><td class="num">4 則</td><td class="num">$481</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr><td class="goal">私訊</td><td>陳醫師-產後胸部下垂<span class="badge b-new">NEW</span></td><td class="status">穩定投遞中</td><td class="num">2 則</td><td class="num">$183</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>眼袋手術</td><td class="status off">素材測試完成</td><td class="num">1 則</td><td class="num">$800</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>隆乳可以撐10年嗎</td><td class="status">穩定投遞中</td><td class="num">1,602 次</td><td class="num">$2.80</td><td class="trend">$0.87 → $2.80</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>通稿 D</td><td class="status off">未投遞</td><td class="num">990 次</td><td class="num">$5.77</td><td class="trend">$3.74 → $5.77</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>陳治有（IG 瀏覽）</td><td class="status">穩定投遞中</td><td class="num">219 次</td><td class="num">$2.95</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>游醫師-減肥=抽脂嗎</td><td class="status off">未投遞</td><td class="num">69 次</td><td class="num">$6.00</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">影片觀看</td><td>陳治有 ThruPlay</td><td class="status off">未投遞</td><td class="num">8,070 次</td><td class="num">$0.25</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+</tbody></table></div>
+<div class="analysis"><p style="margin:0 0 8px">台中目前累計總私訊 64 則，日均 4.3 則；私訊平均單次成本 $258，比 9 月的 $362 下降 29%。</p><ol style="margin:0;padding-left:1.4em"><li>「隆乳素人招募」累計 36 則、單次成本 $226，比 9 月下降 42%，為台中主力素材。</li><li>「隆乳術後影片」6 則、單次成本僅 $52，轉換效率佳。</li><li>新素材「陳醫師產後胸部下垂」上線後累計 2 則、單次成本 $183，持續觀察中。</li><li>IG 瀏覽方面，「隆乳可以撐 10 年嗎」累計 1,602 次、$2.80／次，穩定曝光中。</li><li>影音觀看 ThruPlay 養量中：「陳治有影片」累計 8,070 次、$0.25／次，受眾累積表現優異。</li><li>已淘汰素材：眼袋手術素材測試完成。</li></ol></div>
+</section>
+
+<!-- ── 高雄 ── -->
+<section class="site-kh"><div class="sec-head"><h2>高雄美朵</h2><span class="hl">私訊單次成本比 9 月下降 36%・拉皮影音表現優異</span></div>
+<div class="statline">
+<div class="stat"><div class="l">私訊諮詢</div><div class="n">229<small>則</small></div></div>
+<div class="stat"><div class="l">IG 瀏覽</div><div class="n">1,627<small>次</small></div></div>
+<div class="stat"><div class="l">影片觀看（ThruPlay）</div><div class="n">3,554<small>次</small></div></div>
+<div class="stat"><div class="l">IG 追蹤</div><div class="n">47<small>人</small></div></div>
+</div>
+<div class="tbl"><table><thead><tr><th>目標</th><th>素材</th><th>投遞狀態</th><th>成果</th><th>單次成本</th><th>趨勢（vs 9 月）</th><th>建議</th></tr></thead><tbody>
+<tr><td class="goal">私訊</td><td>拉皮影音 30 秒認識拉皮</td><td class="status">穩定投遞中</td><td class="num">128 則</td><td class="num">$69</td><td class="trend down">$80 → $69</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>謝醫師素人隆乳計劃</td><td class="status">穩定投遞中</td><td class="num">45 則</td><td class="num">$128</td><td class="trend down">$171 → $128</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>素人佳佳</td><td class="status">穩定投遞中</td><td class="num">41 則</td><td class="num">$163</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">私訊</td><td>謝醫師隆乳推薦</td><td class="status off">未投遞</td><td class="num">8 則</td><td class="num">$186</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>又菁醫師隆乳術後照顧（私訊）</td><td class="status">穩定投遞中</td><td class="num">2 則</td><td class="num">$449</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>游醫師素人影音分享<span class="badge b-new">NEW</span></td><td class="status">穩定投遞中</td><td class="num">2 則</td><td class="num">$83</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">私訊</td><td>拉皮素人分享（舊）</td><td class="status off">未投遞</td><td class="num">2 則</td><td class="num">—</td><td class="trend">$224 → —</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr><td class="goal">私訊</td><td>游醫師女王波素人影音分享<span class="badge b-new">NEW</span></td><td class="status">穩定投遞中</td><td class="num">1 則</td><td class="num">$368</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr class="off"><td class="goal">私訊</td><td>男生素人</td><td class="status off">素材測試完成・已淘汰</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-off">已淘汰</span></td></tr>
+<tr><td class="goal">私訊</td><td>謝醫師素人影音分享<span class="badge b-new">NEW</span></td><td class="status learn">剛上線</td><td class="num">0 則</td><td class="num">—</td><td class="trend">—</td><td><span class="badge b-watch">觀察</span></td></tr>
+<tr><td class="goal">IG 瀏覽</td><td>隆乳材質怎麼選</td><td class="status">穩定投遞中</td><td class="num">1,627 次</td><td class="num">$2.66</td><td class="trend down">$3.12 → $2.66</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">影片觀看</td><td>又菁醫師隆乳是否會影響哺乳</td><td class="status">穩定投遞中</td><td class="num">2,458 次</td><td class="num">$0.07</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+<tr><td class="goal">影片觀看</td><td>又菁醫師隆乳術後照顧（ThruPlay）</td><td class="status">穩定投遞中</td><td class="num">1,096 次</td><td class="num">$0.14</td><td class="trend">—</td><td><span class="badge b-go">續投</span></td></tr>
+</tbody></table></div>
+<div class="analysis"><p style="margin:0 0 8px">高雄目前累計總私訊 229 則，日均 15.3 則；私訊平均單次成本 $105，比 9 月的 $165 下降 36%，為三院成本最低。</p><ol style="margin:0;padding-left:1.4em"><li>「拉皮影音 30 秒認識拉皮」表現優異，累計 128 則、單次成本 $69，比 9 月下降 14%，持續為高雄王牌素材。</li><li>「謝醫師素人隆乳計劃」45 則、單次成本 $128，比 9 月下降 25%。「素人佳佳」41 則、$163／則，穩定產出。</li><li>又菁醫師多種互動組合中，ThruPlay 表現佳（累計 3,554 次），但私訊轉換單次成本偏高（$449），建議考量調整為影片養受眾策略。</li><li>游醫師系列目前量體較小，持續觀察中。新素材「游醫師女王波素人影音分享」及「游醫師素人影音分享」已上線，觀察中。</li><li>影音觀看 ThruPlay 養量中：「又菁醫師隆乳是否會影響哺乳」2,458 次、$0.07／次，「又菁醫師隆乳術後照顧」1,096 次、$0.14／次，持續累積受眾。</li><li>已淘汰素材：男生素人素材測試完成。</li></ol></div>
+</section>
+
+<!-- 整體觀察 -->
+<div class="overall">
+<h2>整體觀察與下一步</h2>
+<p>10 月前半三院私訊成本全面優於 9 月，趨勢健康。台中台北目前廣告導入持續提升中，高雄導入效果穩定優異。</p>
+<div class="recs">
+<div class="rec"><div class="t"><span>01</span>三院成本全面下降</div><p>台北 -21%、台中 -29%、高雄 -36%，三院私訊平均單次成本均優於 9 月水準，素材優化策略持續見效。</p></div>
+<div class="rec"><div class="t"><span>02</span>影音素材持續養量</div><p>台中陳治有 ThruPlay 8,070 次、高雄又菁醫師 ThruPlay 3,554 次，影音素材累積觀看受眾，為後續轉換私訊做準備。</p></div>
+<div class="rec"><div class="t"><span>03</span>新素材密集測試中</div><p>本期三院共新增 8 支素材，涵蓋女王波、天鵝頸拉皮、產後哺乳等主題，持續擴大素材庫，追蹤下週成效表現。</p></div>
+<div class="rec"><div class="t"><span>04</span>高雄拉皮影音持續領跑</div><p>「30 秒認識拉皮」累計 128 則、單次成本 $69，為全三院表現最佳素材，建議持續投遞並延伸相關素材。</p></div>
+</div>
+</div>
+
+<footer>美朵醫美｜Meta 廣告週報｜2026/10/15</footer>
+</main>
+</body>
+</html>
