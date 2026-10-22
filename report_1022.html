@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美朵三院 Meta 廣告成效週報 | 10/22</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --border: #e5e5e7;
+    --taipei: #e8920b;
+    --taipei-bg: #fef7ec;
+    --taichung: #3478f6;
+    --taichung-bg: #eef4fe;
+    --kaohsiung: #30a14e;
+    --kaohsiung-bg: #edf7ef;
+    --badge-green: #30a14e;
+    --badge-green-bg: #edf7ef;
+    --badge-amber: #e8920b;
+    --badge-amber-bg: #fef7ec;
+    --badge-red: #d93025;
+    --badge-red-bg: #fdecea;
+    --badge-purple: #8e44ad;
+    --badge-purple-bg: #f3e8fa;
+    --up: #30a14e;
+    --down: #d93025;
+    --row-alt: #fafafa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 0 16px;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 0 60px;
+  }
+
+  /* Header */
+  .report-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .report-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .report-header .subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  .report-header .period {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  /* Section headers */
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* KPI Overview */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 700px) {
+    .kpi-grid { grid-template-columns: 1fr; }
+  }
+
+  .kpi-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    border-top: 4px solid;
+  }
+  .kpi-card.taipei { border-color: var(--taipei); }
+  .kpi-card.taichung { border-color: var(--taichung); }
+  .kpi-card.kaohsiung { border-color: var(--kaohsiung); }
+
+  .kpi-card .clinic-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  .kpi-card.taipei .clinic-name { color: var(--taipei); }
+  .kpi-card.taichung .clinic-name { color: var(--taichung); }
+  .kpi-card.kaohsiung .clinic-name { color: var(--kaohsiung); }
+
+  .kpi-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .kpi-row:last-child { border-bottom: none; }
+  .kpi-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+  .kpi-value {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .kpi-sub {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+  .kpi-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .kpi-change.down { color: var(--up); }
+  .kpi-change.up { color: var(--down); }
+
+  /* Clinic sections */
+  .clinic-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .clinic-section h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .objective-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    color: var(--text);
+  }
+  .objective-title:first-of-type { margin-top: 0; }
+
+  /* Tables */
+  .data-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 780px;
+  }
+  .data-table th {
+    background: var(--bg);
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+  .data-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .data-table tbody tr:nth-child(even) { background: var(--row-alt); }
+  .data-table tbody tr:hover { background: #f0f0f2; }
+
+  .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .data-table .creative-name {
+    max-width: 220px;
+    white-space: normal;
+    word-break: break-all;
+    font-weight: 500;
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-green { background: var(--badge-green-bg); color: var(--badge-green); }
+  .badge-amber { background: var(--badge-amber-bg); color: var(--badge-amber); }
+  .badge-red { background: var(--badge-red-bg); color: var(--badge-red); }
+  .badge-purple { background: var(--badge-purple-bg); color: var(--badge-purple); }
+
+  .trend-up { color: var(--down); font-weight: 600; }
+  .trend-down { color: var(--up); font-weight: 600; }
+  .trend-flat { color: var(--text-secondary); }
+
+  /* Summary section */
+  .summary-box {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+  .summary-box h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .summary-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .summary-box li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .summary-box li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-secondary);
+  }
+
+  /* Adjustment table */
+  .adjust-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin-top: 8px;
+  }
+  .adjust-table th {
+    background: var(--bg);
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+  }
+  .adjust-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+  }
+
+  /* Overall observations */
+  .obs-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: obs;
+  }
+  .obs-list li {
+    counter-increment: obs;
+    padding: 12px 0 12px 36px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .obs-list li:last-child { border-bottom: none; }
+  .obs-list li::before {
+    content: counter(obs);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: var(--taichung);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding: 30px 0 10px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* ThruPlay table (simpler) */
+  .data-table-tp { min-width: 540px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="report-header">
+    <h1>美朵三院 Meta 廣告成效週報</h1>
+    <div class="subtitle">Facebook + Instagram 廣告投放數據彙整</div>
+    <div class="period">📅 2026/10/01 – 10/22（22 天）｜報告日期 2026/10/22</div>
+  </header>
+
+  <!-- ===================== KPI Overview ===================== -->
+  <div class="section-title">📊 三院 KPI 總覽</div>
+
+  <div class="kpi-grid">
+    <!-- 台北 -->
+    <div class="kpi-card taipei">
+      <div class="clinic-name">🏥 台北美朵</div>
+      <div class="kpi-row">
+        <span class="kpi-label">私訊諮詢</span>
+        <span><span class="kpi-value">175</span><span class="kpi-sub">則</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">日均</span>
+        <span><span class="kpi-value">8.0</span><span class="kpi-sub">則/天</span><span class="kpi-change down">vs 9月 ↑67%</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">平均單次成本</span>
+        <span><span class="kpi-value">$271</span><span class="kpi-change down">vs 9月 ↓18%</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">IG 瀏覽</span>
+        <span class="kpi-value">4,237</span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">IG 追蹤</span>
+        <span class="kpi-value">76</span>
+      </div>
+    </div>
+
+    <!-- 台中 -->
+    <div class="kpi-card taichung">
+      <div class="clinic-name">🏥 台中美朵</div>
+      <div class="kpi-row">
+        <span class="kpi-label">私訊諮詢</span>
+        <span><span class="kpi-value">107</span><span class="kpi-sub">則</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">日均</span>
+        <span><span class="kpi-value">4.9</span><span class="kpi-sub">則/天</span><span class="kpi-change down">vs 9月 ↑55%</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">平均單次成本</span>
+        <span><span class="kpi-value">$238</span><span class="kpi-change down">vs 9月 ↓34%</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">IG 瀏覽</span>
+        <span class="kpi-value">4,011</span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">IG 追蹤</span>
+        <span class="kpi-value">53</span>
+      </div>
+    </div>
+
+    <!-- 高雄 -->
+    <div class="kpi-card kaohsiung">
+      <div class="clinic-name">🏥 高雄美朵</div>
+      <div class="kpi-row">
+        <span class="kpi-label">私訊諮詢</span>
+        <span><span class="kpi-value">348</span><span class="kpi-sub">則</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">日均</span>
+        <span><span class="kpi-value">15.8</span><span class="kpi-sub">則/天</span><span class="kpi-change down">vs 9月 ↑46%</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">平均單次成本</span>
+        <span><span class="kpi-value">$126</span><span class="kpi-change down">vs 9月 ↓25%</span></span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">IG 瀏覽</span>
+        <span class="kpi-value">2,383</span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">IG 追蹤</span>
+        <span class="kpi-value">81</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 台北美朵 ===================== -->
+  <div class="section-title">🏥 台北美朵</div>
+  <div class="clinic-section">
+
+    <div class="objective-title">💬 私訊目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th class="num">CPC</th><th class="num">CPM</th><th class="num">CTR</th><th>趨勢</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">陳醫師素人隆乳</td>
+            <td>投遞中</td>
+            <td class="num">11,181</td><td class="num">16,901</td><td class="num">45</td>
+            <td class="num">$219</td><td class="num">$55.9</td><td class="num">$582</td><td class="num">2.33%</td>
+            <td><span class="trend-flat">→</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">素人隆乳體驗</td>
+            <td>投遞中</td>
+            <td class="num">7,361</td><td class="num">13,298</td><td class="num">45</td>
+            <td class="num">$239</td><td class="num">$65.5</td><td class="num">$808</td><td class="num">2.71%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">抽脂影音｜抽脂QA</td>
+            <td>投遞中</td>
+            <td class="num">7,533</td><td class="num">15,354</td><td class="num">45</td>
+            <td class="num">$260</td><td class="num">$109.3</td><td class="num">$762</td><td class="num">1.71%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">女王波素人</td>
+            <td>投遞中</td>
+            <td class="num">5,079</td><td class="num">7,625</td><td class="num">17</td>
+            <td class="num">$261</td><td class="num">$14.8</td><td class="num">$582</td><td class="num">5.21%</td>
+            <td><span class="trend-flat">→</span></td>
+            <td><span class="badge badge-amber">觀察</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">素人隆乳體驗-奶茶</td>
+            <td>投遞中</td>
+            <td class="num">435</td><td class="num">565</td><td class="num">4</td>
+            <td class="num">$148</td><td class="num">$59.0</td><td class="num">$1,044</td><td class="num">3.54%</td>
+            <td><span class="trend-flat">—</span></td>
+            <td><span class="badge badge-amber">觀察</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">翁醫師隆鼻影片 ×2</td>
+            <td>測試中</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td>—</td>
+            <td><span class="badge badge-purple">NEW</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="objective-title">👁️ IG 瀏覽目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th class="num">CPC</th><th class="num">CPM</th><th class="num">CTR</th><th>趨勢</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">抽脂單圖｜通稿1</td>
+            <td>投遞中</td>
+            <td class="num">16,058</td><td class="num">33,404</td><td class="num">2,416</td>
+            <td class="num">$2.62</td><td class="num">$2.53</td><td class="num">$189</td><td class="num">7.41%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">隆乳影音｜隆乳素人分享</td>
+            <td>投遞中</td>
+            <td class="num">25,857</td><td class="num">37,475</td><td class="num">1,108</td>
+            <td class="num">$2.14</td><td class="num">$1.94</td><td class="num">$63</td><td class="num">3.30%</td>
+            <td><span class="trend-flat">→</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="objective-title">🎬 ThruPlay 目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table data-table-tp">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">翁醫師｜天鵝頸+拉皮</td>
+            <td>投遞中</td>
+            <td class="num">7,528</td><td class="num">8,848</td><td class="num">5,747</td>
+            <td class="num">$0.15</td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">翁醫師隆鼻｜美容受眾</td>
+            <td>投遞中</td>
+            <td class="num">12,141</td><td class="num">13,344</td><td class="num">2,268</td>
+            <td class="num">$0.40</td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">陳醫師女王波｜美容受眾</td>
+            <td>投遞中</td>
+            <td class="num">8,952</td><td class="num">9,777</td><td class="num">2,140</td>
+            <td class="num">$0.43</td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 台北 小結 -->
+    <div class="summary-box">
+      <h4>📌 成效概覽</h4>
+      <ul>
+        <li>日均私訊 8.0 則，較 9 月（4.8 則）成長 67%</li>
+        <li>單次成本 $271，較 9 月（$330）下降 18%</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">📌 主力素材</h4>
+      <ul>
+        <li>「陳醫師素人隆乳」單次 $219，為本院成本最低私訊素材</li>
+        <li>「素人隆乳體驗」「抽脂QA」各累計 45 則私訊，表現均衡穩定</li>
+        <li>「奶茶」平面素材單次 $148，展現放量潛力</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">📌 本週調整</h4>
+      <ul>
+        <li>淘汰：盈波隆乳、銀紫色系平面（素材測試完成）</li>
+        <li>新增：翁醫師隆鼻影片 ×2，進入測試</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== 台中美朵 ===================== -->
+  <div class="section-title">🏥 台中美朵</div>
+  <div class="clinic-section">
+
+    <div class="objective-title">💬 私訊目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th class="num">CPC</th><th class="num">CPM</th><th class="num">CTR</th><th>趨勢</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">隆乳平面｜隆乳素人招募</td>
+            <td>投遞中</td>
+            <td class="num">9,184</td><td class="num">18,354</td><td class="num">56</td>
+            <td class="num">$202</td><td class="num">$51.2</td><td class="num">$617</td><td class="num">2.52%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">女王波 vs 魔滴 素人分享</td>
+            <td>測試中</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td>—</td>
+            <td><span class="badge badge-purple">NEW</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="objective-title">👁️ IG 瀏覽目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th class="num">CPC</th><th class="num">CPM</th><th class="num">CTR</th><th>趨勢</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">隆乳影音｜隆乳可以撐10年嗎?</td>
+            <td>投遞中</td>
+            <td class="num">43,307</td><td class="num">52,528</td><td class="num">2,325</td>
+            <td class="num">$2.79</td><td class="num">$2.51</td><td class="num">$124</td><td class="num">5.14%</td>
+            <td><span class="trend-flat">→</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">陳治有｜隆乳材質怎麼挑</td>
+            <td>投遞中</td>
+            <td class="num">8,322</td><td class="num">11,134</td><td class="num">627</td>
+            <td class="num">$3.12</td><td class="num">$2.77</td><td class="num">$176</td><td class="num">7.02%</td>
+            <td><span class="trend-flat">—</span></td>
+            <td><span class="badge badge-amber">觀察</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 台中 小結 -->
+    <div class="summary-box">
+      <h4>📌 成效概覽</h4>
+      <ul>
+        <li>日均私訊 4.9 則，較 9 月（3.1 則）成長 55%</li>
+        <li>單次成本 $238，較 9 月（$363）下降 34%，三院降幅最大</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">📌 主力素材</h4>
+      <ul>
+        <li>「隆乳素人招募」為目前唯一 active 私訊素材（56 則，$202）</li>
+        <li>IG 瀏覽：「隆乳可以撐10年嗎?」穩定導流（2,325 次，$2.79）</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">📌 本週調整</h4>
+      <ul>
+        <li>素人反饋影片因廣告審核未通過，替換為「女王波 vs 魔滴 素人分享」</li>
+        <li>預計下週評估初步成效</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== 高雄美朵 ===================== -->
+  <div class="section-title">🏥 高雄美朵</div>
+  <div class="clinic-section">
+
+    <div class="objective-title">💬 私訊目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th class="num">CPC</th><th class="num">CPM</th><th class="num">CTR</th><th>趨勢</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">拉皮影音｜30秒認識拉皮</td>
+            <td>投遞中</td>
+            <td class="num">10,217</td><td class="num">20,946</td><td class="num">183</td>
+            <td class="num">$71</td><td class="num">$32.5</td><td class="num">$616</td><td class="num">3.73%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">謝醫師｜素人隆乳計劃</td>
+            <td>投遞中</td>
+            <td class="num">11,499</td><td class="num">21,720</td><td class="num">77</td>
+            <td class="num">$120</td><td class="num">$28.2</td><td class="num">$427</td><td class="num">2.67%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">拉皮影音｜素人佳佳</td>
+            <td>投遞中</td>
+            <td class="num">7,838</td><td class="num">17,027</td><td class="num">53</td>
+            <td class="num">$191</td><td class="num">$24.0</td><td class="num">$594</td><td class="num">3.66%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">又菁醫師｜隆乳術後照顧</td>
+            <td>投遞中</td>
+            <td class="num">4,637</td><td class="num">10,137</td><td class="num">14</td>
+            <td class="num">$320</td><td class="num">$21.0</td><td class="num">$442</td><td class="num">3.56%</td>
+            <td><span class="trend-flat">→</span></td>
+            <td><span class="badge badge-amber">觀察</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">隆乳會不會後悔 素人分享</td>
+            <td>測試中</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td>—</td>
+            <td><span class="badge badge-purple">NEW</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">謝醫師｜拉皮能否改善木偶紋及法令紋</td>
+            <td>測試中</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td>—</td>
+            <td><span class="badge badge-purple">NEW</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="objective-title">👁️ IG 瀏覽目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th class="num">CPC</th><th class="num">CPM</th><th class="num">CTR</th><th>趨勢</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">隆乳影音｜隆乳材質怎麼選</td>
+            <td>投遞中</td>
+            <td class="num">39,323</td><td class="num">56,006</td><td class="num">2,383</td>
+            <td class="num">$2.69</td><td class="num">$2.52</td><td class="num">$115</td><td class="num">4.68%</td>
+            <td><span class="trend-down">↓</span></td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="objective-title">🎬 ThruPlay 目標</div>
+    <div class="data-table-wrapper">
+      <table class="data-table data-table-tp">
+        <thead>
+          <tr>
+            <th>素材</th><th>投遞狀態</th><th class="num">觸及</th><th class="num">曝光</th><th class="num">成果</th><th class="num">單次成本</th><th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creative-name">又菁醫師｜隆乳是否會影響哺乳</td>
+            <td>投遞中</td>
+            <td class="num">35,168</td><td class="num">37,051</td><td class="num">13,237</td>
+            <td class="num">$0.07</td>
+            <td><span class="badge badge-green">續投</span></td>
+          </tr>
+          <tr>
+            <td class="creative-name">又菁醫師｜切口怎麼選</td>
+            <td>測試中</td>
+            <td class="num">—</td><td class="num">—</td><td class="num">—</td>
+            <td class="num">—</td>
+            <td><span class="badge badge-purple">NEW</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 高雄 小結 -->
+    <div class="summary-box">
+      <h4>📌 成效概覽</h4>
+      <ul>
+        <li>日均私訊 15.8 則，三院最高；較 9 月（10.9 則）成長 46%</li>
+        <li>單次成本 $126，三院最低；較 9 月（$167）下降 25%</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">📌 主力素材</h4>
+      <ul>
+        <li>「30秒認識拉皮」維持全帳戶最強表現（183 則，$71）</li>
+        <li>「謝醫師素人隆乳計劃」（77 則，$120）、「素人佳佳」（53 則，$191）穩定貢獻</li>
+        <li>ThruPlay「隆乳是否會影響哺乳」以 $0.07 累積 13,237 次觀看，持續養成受眾</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">📌 本週調整</h4>
+      <ul>
+        <li>游醫師素人影片測試完成 → 替換「隆乳會不會後悔素人分享」</li>
+        <li>又菁醫師 ThruPlay 由「術後照顧」→ 替換「切口怎麼選」</li>
+        <li>新增「謝醫師拉皮｜能否改善木偶紋及法令紋」</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== 整體觀察 ===================== -->
+  <div class="section-title">📋 整體觀察與下一步</div>
+  <div class="clinic-section">
+    <ol class="obs-list">
+      <li>三院日均私訊量與單次成本均優於 9 月，台中降幅最大（單次成本 ↓34%），整體投放效率穩步提升。</li>
+      <li>高雄「30秒認識拉皮」連續兩月維持最強素材地位，10 月累積 183 則私訊、單次成本 $71，持續為帳戶表現標竿。</li>
+      <li>台北素材庫持續擴充，「奶茶」平面素材（單次 $148）展現潛力，翁醫師影片系列為下階段成長儲備動能。</li>
+      <li>ThruPlay 影音持續以極低成本養成受眾池，高雄又菁醫師系列累計近 20,000 次觀看，台北翁醫師系列累計超過 10,000 次觀看。</li>
+      <li>各院本週均有素材更新上線，下週將評估新素材初步成效，並依成本走勢決定放量方向。</li>
+    </ol>
+  </div>
+
+  <!-- Footer -->
+  <footer class="report-footer">
+    美朵醫美集團 ｜ Meta 廣告週報 ｜ 2026/10/22 製表
+  </footer>
+
+</div>
+</body>
+</html>
