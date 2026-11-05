@@ -1,0 +1,776 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Myrule 週報</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap">
+<style>
+/* ── Mint Chocolate · light-first ── */
+:root {
+  --bg: #f8f3ec;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf7f2;
+  --border: rgba(104,79,72,0.08);
+  --border-accent: rgba(104,79,72,0.14);
+
+  --text-primary: #3d2e28;
+  --text-secondary: #7a6b63;
+  --text-muted: #b0a59d;
+
+  --accent: #684f48;
+  --accent-soft: rgba(104,79,72,0.08);
+  --accent-text: #5a3f38;
+
+  --taipei: #684f48;
+  --taipei-bg: rgba(104,79,72,0.06);
+  --taichung: #6a9baa;
+  --taichung-bg: rgba(106,155,170,0.06);
+  --kaohsiung: #b89060;
+  --kaohsiung-bg: rgba(184,144,96,0.06);
+
+  --trend-up-color: #5a9e6f;
+  --trend-up-bg: rgba(90,158,111,0.08);
+  --trend-down-color: #b0a59d;
+  --trend-down-bg: rgba(176,165,157,0.05);
+  --trend-new-color: #8b6db5;
+  --trend-new-bg: rgba(139,109,181,0.08);
+  --trend-flat-color: #b0a59d;
+
+  --badge-continue: #5a9e6f;
+  --badge-continue-bg: rgba(90,158,111,0.10);
+  --badge-watch: #c08a3e;
+  --badge-watch-bg: rgba(192,138,62,0.10);
+  --badge-stop: #c46054;
+  --badge-stop-bg: rgba(196,96,84,0.10);
+  --badge-new: #8b6db5;
+  --badge-new-bg: rgba(139,109,181,0.10);
+  --badge-archive: #b0a59d;
+  --badge-archive-bg: rgba(176,165,157,0.10);
+
+  --benchmark: #7a8b6a;
+  --benchmark-bg: rgba(122,139,106,0.06);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c1714;
+    --bg-elevated: #262019;
+    --bg-card: #2a231c;
+    --bg-card-hover: #33291f;
+    --border: rgba(214,203,190,0.08);
+    --border-accent: rgba(214,203,190,0.12);
+    --text-primary: #e8e0d6;
+    --text-secondary: #a89b8e;
+    --text-muted: #6e6158;
+    --accent: #c9a68a;
+    --accent-soft: rgba(201,166,138,0.10);
+    --accent-text: #d4b89e;
+    --taipei: #c9a68a;
+    --taipei-bg: rgba(201,166,138,0.08);
+    --taichung: #7db8ca;
+    --taichung-bg: rgba(125,184,202,0.08);
+    --kaohsiung: #d4a96a;
+    --kaohsiung-bg: rgba(212,169,106,0.08);
+    --trend-up-color: #6ec088;
+    --trend-up-bg: rgba(110,192,136,0.10);
+    --trend-down-color: #6e6158;
+    --trend-down-bg: rgba(110,97,88,0.06);
+    --trend-new-color: #b08ed8;
+    --trend-new-bg: rgba(176,142,216,0.10);
+    --trend-flat-color: #6e6158;
+    --badge-continue: #6ec088;
+    --badge-continue-bg: rgba(110,192,136,0.10);
+    --badge-watch: #d4a64a;
+    --badge-watch-bg: rgba(212,166,74,0.10);
+    --badge-stop: #d87066;
+    --badge-stop-bg: rgba(216,112,102,0.10);
+    --badge-new: #b08ed8;
+    --badge-new-bg: rgba(176,142,216,0.10);
+    --badge-archive: #6e6158;
+    --badge-archive-bg: rgba(110,97,88,0.10);
+    --benchmark: #92a880;
+    --benchmark-bg: rgba(146,168,128,0.08);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1c1714;
+  --bg-elevated: #262019;
+  --bg-card: #2a231c;
+  --bg-card-hover: #33291f;
+  --border: rgba(214,203,190,0.08);
+  --border-accent: rgba(214,203,190,0.12);
+  --text-primary: #e8e0d6;
+  --text-secondary: #a89b8e;
+  --text-muted: #6e6158;
+  --accent: #c9a68a;
+  --accent-soft: rgba(201,166,138,0.10);
+  --accent-text: #d4b89e;
+  --taipei: #c9a68a;
+  --taipei-bg: rgba(201,166,138,0.08);
+  --taichung: #7db8ca;
+  --taichung-bg: rgba(125,184,202,0.08);
+  --kaohsiung: #d4a96a;
+  --kaohsiung-bg: rgba(212,169,106,0.08);
+  --trend-up-color: #6ec088;
+  --trend-up-bg: rgba(110,192,136,0.10);
+  --trend-down-color: #6e6158;
+  --trend-down-bg: rgba(110,97,88,0.06);
+  --trend-new-color: #b08ed8;
+  --trend-new-bg: rgba(176,142,216,0.10);
+  --trend-flat-color: #6e6158;
+  --badge-continue: #6ec088;
+  --badge-continue-bg: rgba(110,192,136,0.10);
+  --badge-watch: #d4a64a;
+  --badge-watch-bg: rgba(212,166,74,0.10);
+  --badge-stop: #d87066;
+  --badge-stop-bg: rgba(216,112,102,0.10);
+  --badge-new: #b08ed8;
+  --badge-new-bg: rgba(176,142,216,0.10);
+  --badge-archive: #6e6158;
+  --badge-archive-bg: rgba(110,97,88,0.10);
+  --benchmark: #92a880;
+  --benchmark-bg: rgba(146,168,128,0.08);
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.report-header {
+  padding: 40px 0 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.report-header .brand {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.report-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.report-header .subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.report-header .subtitle span {
+  color: var(--text-muted);
+  margin: 0 6px;
+}
+
+/* ── Tabs ── */
+.clinic-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.clinic-tab {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-family: inherit;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.clinic-tab:hover { color: var(--text-secondary); }
+.clinic-tab.active { color: var(--text-primary); }
+.clinic-tab[data-clinic="taipei"].active { border-bottom-color: var(--taipei); }
+.clinic-tab[data-clinic="taichung"].active { border-bottom-color: var(--taichung); }
+.clinic-tab[data-clinic="kaohsiung"].active { border-bottom-color: var(--kaohsiung); }
+.clinic-tab[data-clinic="summary"].active { border-bottom-color: var(--accent); }
+
+/* ── Sections ── */
+.clinic-section { display: none; }
+.clinic-section.active { display: block; }
+
+/* ── Stat cards ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px;
+  transition: background 0.15s;
+}
+.stat-card:hover { background: var(--bg-card-hover); }
+.stat-card .stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.stat-card .stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.stat-card .stat-value small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+.stat-card .stat-compare {
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--text-muted);
+}
+
+/* Clinic accent top-line */
+.clinic-section[data-clinic="taipei"] .stat-card { border-top: 2px solid var(--taipei); }
+.clinic-section[data-clinic="taichung"] .stat-card { border-top: 2px solid var(--taichung); }
+.clinic-section[data-clinic="kaohsiung"] .stat-card { border-top: 2px solid var(--kaohsiung); }
+.clinic-section[data-clinic="summary"] .stat-card { border-top: 2px solid var(--accent); }
+
+/* ── Section heading ── */
+.section-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 28px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-heading::before {
+  content: '';
+  width: 3px;
+  height: 16px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.clinic-section[data-clinic="taipei"] .section-heading::before { background: var(--taipei); }
+.clinic-section[data-clinic="taichung"] .section-heading::before { background: var(--taichung); }
+.clinic-section[data-clinic="kaohsiung"] .section-heading::before { background: var(--kaohsiung); }
+.clinic-section[data-clinic="summary"] .section-heading::before { background: var(--accent); }
+
+/* ── Tables ── */
+.ad-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 520px;
+}
+.ad-table thead th {
+  background: var(--bg-elevated);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.ad-table thead th:first-child { padding-left: 16px; }
+.ad-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+.ad-table tbody td:first-child {
+  padding-left: 16px;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 12px;
+}
+.ad-table tbody tr:last-child td { border-bottom: none; }
+.ad-table tbody tr:hover { background: var(--bg-card-hover); }
+.ad-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ── Badges ── */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.badge-continue { background: var(--badge-continue-bg); color: var(--badge-continue); }
+.badge-watch { background: var(--badge-watch-bg); color: var(--badge-watch); }
+.badge-stop { background: var(--badge-stop-bg); color: var(--badge-stop); }
+.badge-new { background: var(--badge-new-bg); color: var(--badge-new); }
+.badge-archive { background: var(--badge-archive-bg); color: var(--badge-archive); }
+
+/* ── Observation ── */
+.obs-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.obs-box ul { list-style: none; }
+.obs-box li {
+  padding: 5px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+  display: flex;
+  gap: 8px;
+}
+.obs-box li::before {
+  content: '▸';
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Benchmark callout ── */
+.benchmark-box {
+  background: var(--benchmark-bg);
+  border: 1px solid rgba(122,139,106,0.15);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.benchmark-box .bm-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--benchmark);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.benchmark-box .bm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px 20px;
+}
+.benchmark-box .bm-item { display: flex; justify-content: space-between; }
+.benchmark-box .bm-label { color: var(--text-muted); }
+.benchmark-box .bm-val { font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+/* ── Strategy tag ── */
+.obs-box .strategy-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  margin-right: 4px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.strategy-tag.insight { background: rgba(106,155,170,0.12); color: var(--taichung); }
+.strategy-tag.action { background: var(--badge-continue-bg); color: var(--badge-continue); }
+.strategy-tag.benchmark { background: var(--benchmark-bg); color: var(--benchmark); }
+
+/* ── New creatives cards ── */
+.new-creatives-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.new-creative-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.new-creative-card .nc-header {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.new-creative-card .nc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.new-creative-card[data-nc="taipei"] .nc-dot { background: var(--taipei); }
+.new-creative-card[data-nc="taipei"] .nc-header { background: var(--taipei-bg); }
+.new-creative-card[data-nc="taichung"] .nc-dot { background: var(--taichung); }
+.new-creative-card[data-nc="taichung"] .nc-header { background: var(--taichung-bg); }
+.new-creative-card[data-nc="kaohsiung"] .nc-dot { background: var(--kaohsiung); }
+.new-creative-card[data-nc="kaohsiung"] .nc-header { background: var(--kaohsiung-bg); }
+.new-creative-card .nc-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.new-creative-card .nc-row:last-child { border-bottom: none; }
+.new-creative-card .nc-row:hover { background: var(--bg-card-hover); }
+.nc-purpose {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nc-purpose.msg { background: var(--badge-continue-bg); color: var(--badge-continue); }
+.nc-purpose.ig { background: var(--trend-new-bg); color: var(--trend-new-color); }
+.nc-purpose.video { background: var(--badge-watch-bg); color: var(--badge-watch); }
+.nc-name { color: var(--text-secondary); font-weight: 500; }
+
+/* ── Footer ── */
+.report-footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 600px) {
+  .report-header h1 { font-size: 22px; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .stat-card .stat-value { font-size: 22px; }
+  .clinic-tab { padding: 8px 14px; font-size: 12px; }
+  .ad-table tbody td:first-child { font-size: 11px; }
+  .benchmark-box .bm-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="report-header">
+  <div class="brand">Myrule · Meta Ads</div>
+  <h1>11 月週報</h1>
+  <div class="subtitle">2026/11/01 – 11/05（5 天）</div>
+</div>
+
+<!-- ═══════════════ TABS ═══════════════ -->
+<nav class="clinic-tabs" role="tablist">
+  <button class="clinic-tab active" data-clinic="summary" role="tab" aria-selected="true">三院彙整</button>
+  <button class="clinic-tab" data-clinic="taipei" role="tab" aria-selected="false">台北</button>
+  <button class="clinic-tab" data-clinic="taichung" role="tab" aria-selected="false">台中</button>
+  <button class="clinic-tab" data-clinic="kaohsiung" role="tab" aria-selected="false">高雄</button>
+</nav>
+
+<!-- ═══════════════ 三院彙整 ═══════════════ -->
+<section class="clinic-section active" data-clinic="summary" role="tabpanel">
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-label">三院累計私訊</div>
+      <div class="stat-value">106<small>則</small></div>
+      <div class="stat-compare">日均 21.2 則</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">三院影片合計</div>
+      <div class="stat-value">15<small>支</small></div>
+      <div class="stat-compare">台北 6 ＋ 台中 4 ＋ 高雄 5</div>
+    </div>
+  </div>
+
+  <!-- Market Benchmark -->
+  <div class="benchmark-box">
+    <div class="bm-title">市場行情對照（醫美產業 Meta 廣告）</div>
+    <div class="bm-grid">
+      <div class="bm-item"><span class="bm-label">國際醫美 CPL</span><span class="bm-val">NT$1,600+</span></div>
+      <div class="bm-item"><span class="bm-label">整形外科 CPL</span><span class="bm-val">NT$4,000+</span></div>
+      <div class="bm-item"><span class="bm-label">台灣 Meta CPC</span><span class="bm-val">NT$5–50</span></div>
+    </div>
+  </div>
+
+  <h3 class="section-heading">各院私訊概覽</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>分院</th><th class="num">累計私訊</th><th class="num">日均</th><th class="num">影片累積</th><th class="num">素材數</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span style="color:var(--taipei)">■</span> 台北</td>
+          <td class="num">29 則</td><td class="num">5.8</td><td class="num">6 支</td><td class="num">6 組</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--taichung)">■</span> 台中</td>
+          <td class="num">20 則</td><td class="num">4.0</td><td class="num">4 支</td><td class="num">2 組</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--kaohsiung)">■</span> 高雄</td>
+          <td class="num">57 則</td><td class="num">11.4</td><td class="num">5 支</td><td class="num">5 組</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">本週新增投放素材</h3>
+  <div class="new-creatives-grid">
+    <div class="new-creative-card" data-nc="taipei">
+      <div class="nc-header"><span class="nc-dot"></span>台北</div>
+      <div class="nc-row"><span class="nc-purpose ig">IG 追蹤</span><span class="nc-name">翁醫師年輕女生胸部下垂困擾</span></div>
+      <div class="nc-row"><span class="nc-purpose msg">私訊</span><span class="nc-name">1022 女王波術後一個月</span></div>
+      <div class="nc-row"><span class="nc-purpose msg">私訊</span><span class="nc-name">1028 女神波術後兩個月</span></div>
+    </div>
+    <div class="new-creative-card" data-nc="taichung">
+      <div class="nc-header"><span class="nc-dot"></span>台中</div>
+      <div class="nc-row"><span class="nc-purpose msg">私訊</span><span class="nc-name">游醫師-隆乳隆鼻一起做</span></div>
+      <div class="nc-row"><span class="nc-purpose video">影音觀看</span><span class="nc-name">游醫師-隆乳隆鼻一起做</span></div>
+    </div>
+    <div class="new-creative-card" data-nc="kaohsiung">
+      <div class="nc-header"><span class="nc-dot"></span>高雄</div>
+      <div class="nc-row"><span class="nc-purpose ig">IG 追蹤</span><span class="nc-name">游醫師-隆乳快問快答</span></div>
+      <div class="nc-row"><span class="nc-purpose msg">私訊</span><span class="nc-name">1104 謝醫師隆乳素人</span></div>
+      <div class="nc-row"><span class="nc-purpose msg">私訊</span><span class="nc-name">1029 游醫師隆乳素人</span></div>
+    </div>
+  </div>
+
+  <h3 class="section-heading">整體策略觀察</h3>
+  <div class="obs-box">
+    <ul>
+      <li><span class="strategy-tag benchmark">行情</span>國際醫美 CPL 約 NT$1,600+、整形外科 NT$4,000+，Myrule 三院私訊成本遠優於市場行情</li>
+      <li><span class="strategy-tag insight">趨勢</span>高雄拉皮素材單次成本持續維持低檔，台北主力素材表現穩定，整體投放效率持續優化中</li>
+      <li><span class="strategy-tag action">策略</span>本月投放重點：台北擴充新影音素材測試、台中補充素人影片進私訊行銷活動、高雄調整隆乳架構對標拉皮線，進行投遞</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════ 台北 ═══════════════ -->
+<section class="clinic-section" data-clinic="taipei" role="tabpanel">
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-label">累計私訊</div>
+      <div class="stat-value">29<small>則</small></div>
+      <div class="stat-compare">日均 5.8 則</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">IG 瀏覽</div>
+      <div class="stat-value">203<small>次</small></div>
+      <div class="stat-compare">單次 $4.27</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">本月影片數</div>
+      <div class="stat-value">6<small>支</small></div>
+      <div class="stat-compare">&nbsp;</div>
+    </div>
+  </div>
+
+  <h3 class="section-heading">私訊廣告成效</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">成果</th><th class="num">單次成本</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr><td>2609｜隆乳平面｜私訊｜素人隆乳體驗</td><td class="num">14 則</td><td class="num">$200</td><td><span class="badge badge-continue">續投</span></td></tr>
+        <tr><td>2610｜隆乳影音｜私訊｜陳醫師素人隆乳</td><td class="num">6 則</td><td class="num">$611</td><td><span class="badge badge-watch">觀察</span></td></tr>
+        <tr><td>2609｜抽脂影音｜私訊｜抽脂QA</td><td class="num">3 則</td><td class="num">$969</td><td><span class="badge badge-watch">觀察</span></td></tr>
+        <tr><td>2610｜隆乳影音｜私訊｜素人分享_盈波隆乳</td><td class="num">3 則</td><td class="num">$845</td><td><span class="badge badge-watch">觀察</span></td></tr>
+        <tr><td>2610｜隆乳影音｜私訊｜女王波素人</td><td class="num">2 則</td><td class="num">$261</td><td><span class="badge badge-watch">觀察</span></td></tr>
+        <tr><td>2610｜隆乳平面｜私訊｜素人隆乳體驗-奶茶</td><td class="num">1 則</td><td class="num">$106</td><td><span class="badge badge-new">NEW</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">IG 瀏覽廣告</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">瀏覽次數</th><th class="num">單次成本</th><th>狀態</th></tr></thead>
+      <tbody>
+        <tr><td>2610｜隆乳影音｜流量(IG瀏覽)｜隆乳素人分享</td><td class="num">203 次</td><td class="num">$4.27</td><td><span class="badge badge-continue">續投</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">本週觀察</h3>
+  <div class="obs-box">
+    <ul>
+      <li><span class="strategy-tag benchmark">行情</span>主力素材「素人隆乳體驗」單次 $200，對比國際行情 NT$1,600+ 具備素材競爭力</li>
+      <li><span class="strategy-tag insight">趨勢</span>新素材「奶茶」首投即有回應、$106，若穩定可加大預算</li>
+      <li><span class="strategy-tag action">策略</span>新影音素材已陸續上架測試中，建議觀察到 10 則以上再判斷，避免過早調整影響機器學習</li>
+      <li><span class="strategy-tag insight">趨勢</span>影片素材累計 6 支為三院最多，素材庫持續擴充中</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════ 台中 ═══════════════ -->
+<section class="clinic-section" data-clinic="taichung" role="tabpanel">
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-label">累計私訊</div>
+      <div class="stat-value">20<small>則</small></div>
+      <div class="stat-compare">日均 4.0 則</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">IG 瀏覽</div>
+      <div class="stat-value">1,335<small>次</small></div>
+      <div class="stat-compare">雙素材組合投遞中</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">本月影片數</div>
+      <div class="stat-value">4<small>支</small></div>
+      <div class="stat-compare">&nbsp;</div>
+    </div>
+  </div>
+
+  <h3 class="section-heading">私訊廣告成效</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">成果</th><th class="num">單次成本</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr><td>2610｜私訊｜興趣受眾｜台中客人案例真實分享</td><td class="num">11 則</td><td class="num">$306</td><td><span class="badge badge-continue">續投</span></td></tr>
+        <tr><td>2610｜私訊｜隆乳平面｜隆乳素人招募</td><td class="num">9 則</td><td class="num">$275</td><td><span class="badge badge-continue">續投</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">IG 瀏覽廣告</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">瀏覽次數</th><th class="num">單次成本</th><th>狀態</th></tr></thead>
+      <tbody>
+        <tr><td>2608｜隆乳影音｜IG瀏覽｜隆乳可以撐10年嗎?</td><td class="num">1,154 次</td><td class="num">$1.14</td><td><span class="badge badge-continue">續投</span></td></tr>
+        <tr><td>2610｜流量｜IG瀏覽｜陳治有-隆乳材質怎麼挑</td><td class="num">181 次</td><td class="num">$4.85</td><td><span class="badge badge-watch">觀察</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">ThruPlay 影音觀看</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">ThruPlay</th><th class="num">單次成本</th><th>狀態</th></tr></thead>
+      <tbody>
+        <tr><td>2611｜游醫師｜私訊｜隆鼻隆乳一起做</td><td class="num">3,086 次</td><td class="num">$0.12</td><td><span class="badge badge-archive">已封存</span></td></tr>
+        <tr><td>2611｜游醫師｜影片觀看｜隆鼻隆乳一起做</td><td class="num">1,099 次</td><td class="num">$0.15</td><td><span class="badge badge-continue">續投</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">本週觀察</h3>
+  <div class="obs-box">
+    <ul>
+      <li><span class="strategy-tag benchmark">行情</span>兩組私訊素材均成本 NT$275–306，約為國際行情的 1/5，保有素材優化空間</li>
+      <li><span class="strategy-tag insight">趨勢</span>「隆乳可以撐 10 年嗎」IG 瀏覽 $1.14 遠低於台灣 CPC 行情 NT$5–50</li>
+      <li><span class="strategy-tag action">策略</span>游醫師 ThruPlay $0.12–0.15，後續會以此作為觀看受眾再行銷名單</li>
+      <li><span class="strategy-tag action">策略</span>需要新增素人影片，擴充私訊目的 1–2 組差異化素材</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════ 高雄 ═══════════════ -->
+<section class="clinic-section" data-clinic="kaohsiung" role="tabpanel">
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-label">累計私訊</div>
+      <div class="stat-value">57<small>則</small></div>
+      <div class="stat-compare">日均 11.4 則</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">IG 瀏覽</div>
+      <div class="stat-value">280<small>次</small></div>
+      <div class="stat-compare">更新素材組</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">本月影片數</div>
+      <div class="stat-value">5<small>支</small></div>
+      <div class="stat-compare">&nbsp;</div>
+    </div>
+  </div>
+
+  <h3 class="section-heading">私訊廣告成效</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">成果</th><th class="num">單次成本</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr><td>2608｜拉皮影音｜30秒認識拉皮｜私訊</td><td class="num">23 則</td><td class="num">$82</td><td><span class="badge badge-continue">續投</span></td></tr>
+        <tr><td>2610｜拉皮影音｜顳側拉皮</td><td class="num">13 則</td><td class="num">$76</td><td><span class="badge badge-continue">續投</span></td></tr>
+        <tr><td>2609｜隆乳平面｜謝醫師｜素人隆乳計劃</td><td class="num">8 則</td><td class="num">$299</td><td><span class="badge badge-watch">觀察</span></td></tr>
+        <tr><td>261023｜隆乳影音｜私訊｜謝醫師-芬芬隆乳分享</td><td class="num">7 則</td><td class="num">$353</td><td><span class="badge badge-watch">觀察</span></td></tr>
+        <tr><td>2610｜拉皮影音｜私訊｜純興趣｜素人佳佳</td><td class="num">6 則</td><td class="num">$398</td><td><span class="badge badge-watch">觀察</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">IG 瀏覽廣告</h3>
+  <div class="ad-table-wrap">
+    <table class="ad-table">
+      <thead><tr><th>廣告名稱</th><th class="num">瀏覽次數</th><th class="num">單次成本</th><th>狀態</th></tr></thead>
+      <tbody>
+        <tr><td>2608｜隆乳影音｜流量｜隆乳材質怎麼選</td><td class="num">280 次</td><td class="num">$4.83</td><td><span class="badge badge-new">替換為 11 月游醫師影片素材</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-heading">本週觀察</h3>
+  <div class="obs-box">
+    <ul>
+      <li><span class="strategy-tag benchmark">行情</span>拉皮素材 $76–82，對比國際整形外科 CPL NT$4,000+ 是具有競爭力的素材組</li>
+      <li><span class="strategy-tag action">策略</span>隆乳線將調整廣告架構，參考拉皮的「短秒知識型影音」格式重新設定受眾與版位，目標為調整單次成本</li>
+      <li><span class="strategy-tag action">策略</span>後續以不同的素材測試 IG 追蹤與影片觀看效益</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="report-footer">
+  MYRULE · META ADS WEEKLY REPORT · 2026/11
+</footer>
+
+<script>
+(function(){
+  const tabs = document.querySelectorAll('.clinic-tab');
+  const sections = document.querySelectorAll('.clinic-section');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      sections.forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      document.querySelector(`.clinic-section[data-clinic="${tab.dataset.clinic}"]`).classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body></html>
